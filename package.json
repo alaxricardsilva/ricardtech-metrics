@@ -1,0 +1,18 @@
+{
+  "name": "ricardtech-metrics",
+  "version": "1.0.0",
+  "description": "Multi-cloud repository growth analytics and SVG dashboard generator for GitHub, GitLab and Forgejo.",
+  "main": "src/index.js",
+  "bin": {
+    "ricardtech-metrics": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "author": "Ricard Tech <alaxricardsilva@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

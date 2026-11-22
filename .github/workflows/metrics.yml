@@ -1,0 +1,77 @@
+name: RicardTech Ecosystem Metrics
+
+on:
+  schedule:
+    # Executa 2x ao dia: 00:00 UTC e 12:00 UTC
+    - cron: '0 0,12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ecosystem-metrics
+  cancel-in-progress: false
+
+jobs:
+  collect-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run metrics collector & SVG generator
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: alaxricardsilva
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+          GITLAB_USER: alaxricard
+          FORGEJO_TOKEN: ${{ secrets.FORGEJO_TOKEN }}
+          FORGEJO_USER: RicardTech
+          FORGEJO_URL: https://git.ricardtech.top
+        run: |
+          node src/index.js
+
+      - name: Commit and Triplo-Push (GitHub + GitLab + Forgejo)
+        env:
+          GITLAB_PUSH_TOKEN: ${{ secrets.GITLAB_PUSH_TOKEN }}
+          FORGEJO_PUSH_TOKEN: ${{ secrets.FORGEJO_PUSH_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add charts/ data/
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração nos dados ou gráficos."
+            exit 0
+          fi
+
+          git commit -m "chore(metrics): update ecosystem growth dashboard [skip ci]"
+
+          # Configura push para GitHub
+          git remote set-url --push origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/alaxricardsilva/ricardtech-metrics.git"
+
+          # Se o token do GitLab estiver configurado nos secrets, adiciona ao push
+          if [ -n "$GITLAB_PUSH_TOKEN" ]; then
+            git remote set-url --add --push origin "https://oauth2:${GITLAB_PUSH_TOKEN}@gitlab.com/alaxricard/ricardtech-metrics.git"
+          else
+            echo "::warning::GITLAB_PUSH_TOKEN não configurado nos Secrets. Push para GitLab ignorado neste ciclo."
+          fi
+
+          # Se o token do Forgejo estiver configurado nos secrets, adiciona ao push
+          if [ -n "$FORGEJO_PUSH_TOKEN" ]; then
+            git remote set-url --add --push origin "https://ricardtech:${FORGEJO_PUSH_TOKEN}@git.ricardtech.top/RicardTech/ricardtech-metrics.git"
+          else
+            echo "::warning::FORGEJO_PUSH_TOKEN não configurado nos Secrets. Push para Forgejo ignorado neste ciclo."
+          fi
+
+          # Executa o Triplo-Push sincronizado
+          git push origin HEAD:main
