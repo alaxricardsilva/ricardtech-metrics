@@ -10,13 +10,13 @@ const DEFAULT_FORGEJO_URL = 'https://git.ricardtech.top';
 class MetricsCollector {
   constructor(options = {}) {
     this.githubToken = options.githubToken || process.env.GITHUB_TOKEN || '';
-    this.githubUser = options.githubUser || process.env.GITHUB_USER || 'alaxricardsilva';
+    this.githubUsers = (options.githubUsers || process.env.GITHUB_USERS || 'ricardtech,alaxricardsilva').split(',').map(s => s.trim()).filter(Boolean);
     
     this.gitlabToken = options.gitlabToken || process.env.GITLAB_TOKEN || '';
-    this.gitlabUser = options.gitlabUser || process.env.GITLAB_USER || 'alaxricard';
+    this.gitlabUsers = (options.gitlabUsers || process.env.GITLAB_USERS || 'ricard-tech,alaxricard').split(',').map(s => s.trim()).filter(Boolean);
     
     this.forgejoToken = options.forgejoToken || process.env.FORGEJO_TOKEN || '';
-    this.forgejoUser = options.forgejoUser || process.env.FORGEJO_USER || 'RicardTech';
+    this.forgejoUsers = (options.forgejoUsers || process.env.FORGEJO_USERS || 'RicardTech').split(',').map(s => s.trim()).filter(Boolean);
     this.forgejoUrl = (options.forgejoUrl || process.env.FORGEJO_URL || DEFAULT_FORGEJO_URL).replace(/\/$/, '');
   }
 
@@ -51,34 +51,35 @@ class MetricsCollector {
     const headers = { Accept: 'application/vnd.github+json' };
     if (this.githubToken) headers.Authorization = `Bearer ${this.githubToken}`;
 
-    const url = `https://api.github.com/users/${this.githubUser}/repos?per_page=100&type=all`;
-    const repos = await this.fetchJson(url, headers);
-    if (!Array.isArray(repos)) return reposMap;
+    for (const user of this.githubUsers) {
+      const url = `https://api.github.com/users/${user}/repos?per_page=100&type=all`;
+      const repos = await this.fetchJson(url, headers);
+      if (!Array.isArray(repos)) continue;
 
-    for (const r of repos) {
-      if (r.fork) continue; // focar em repositórios próprios
-      const repoName = r.name.toLowerCase();
-      let downloads = 0;
+      for (const r of repos) {
+        if (r.fork) continue;
+        const repoName = r.name.toLowerCase();
+        let downloads = 0;
 
-      // Releases e download counts
-      const releases = await this.fetchJson(`https://api.github.com/repos/${this.githubUser}/${r.name}/releases?per_page=100`, headers);
-      if (Array.isArray(releases)) {
-        for (const rel of releases) {
-          if (Array.isArray(rel.assets)) {
-            for (const asset of rel.assets) {
-              downloads += Number(asset.download_count) || 0;
+        const releases = await this.fetchJson(`https://api.github.com/repos/${user}/${r.name}/releases?per_page=100`, headers);
+        if (Array.isArray(releases)) {
+          for (const rel of releases) {
+            if (Array.isArray(rel.assets)) {
+              for (const asset of rel.assets) {
+                downloads += Number(asset.download_count) || 0;
+              }
             }
           }
         }
-      }
 
-      reposMap.set(repoName, {
-        name: r.name,
-        stars: Number(r.stargazers_count) || 0,
-        forks: Number(r.forks_count) || 0,
-        downloads,
-        url: r.html_url
-      });
+        reposMap.set(repoName, {
+          name: r.name,
+          stars: Number(r.stargazers_count) || 0,
+          forks: Number(r.forks_count) || 0,
+          downloads,
+          url: r.html_url
+        });
+      }
     }
 
     return reposMap;
@@ -89,32 +90,24 @@ class MetricsCollector {
     const headers = {};
     if (this.gitlabToken) headers['PRIVATE-TOKEN'] = this.gitlabToken;
 
-    const url = `https://gitlab.com/api/v4/users/${this.gitlabUser}/projects?per_page=100`;
-    const projects = await this.fetchJson(url, headers);
-    if (!Array.isArray(projects)) return reposMap;
+    for (const user of this.gitlabUsers) {
+      const url = `https://gitlab.com/api/v4/users/${user}/projects?per_page=100`;
+      const projects = await this.fetchJson(url, headers);
+      if (!Array.isArray(projects)) continue;
 
-    for (const p of projects) {
-      if (p.forked_from_project) continue;
-      const repoName = p.path.toLowerCase();
-      let downloads = 0;
+      for (const p of projects) {
+        if (p.forked_from_project) continue;
+        const repoName = p.path.toLowerCase();
+        let downloads = 0;
 
-      // Releases e packages
-      const releases = await this.fetchJson(`https://gitlab.com/api/v4/projects/${p.id}/releases`, headers);
-      if (Array.isArray(releases)) {
-        for (const rel of releases) {
-          if (rel.assets && Array.isArray(rel.assets.links)) {
-            // Em gitlab releases links não possuem download count direto na API padrão
-          }
-        }
+        reposMap.set(repoName, {
+          name: p.path,
+          stars: Number(p.star_count) || 0,
+          forks: Number(p.forks_count) || 0,
+          downloads,
+          url: p.web_url
+        });
       }
-
-      reposMap.set(repoName, {
-        name: p.path,
-        stars: Number(p.star_count) || 0,
-        forks: Number(p.forks_count) || 0,
-        downloads,
-        url: p.web_url
-      });
     }
 
     return reposMap;
@@ -125,33 +118,35 @@ class MetricsCollector {
     const headers = {};
     if (this.forgejoToken) headers.Authorization = `token ${this.forgejoToken}`;
 
-    const url = `${this.forgejoUrl}/api/v1/users/${this.forgejoUser}/repos?limit=100`;
-    const repos = await this.fetchJson(url, headers);
-    if (!Array.isArray(repos)) return reposMap;
+    for (const user of this.forgejoUsers) {
+      const url = `${this.forgejoUrl}/api/v1/users/${user}/repos?limit=100`;
+      const repos = await this.fetchJson(url, headers);
+      if (!Array.isArray(repos)) continue;
 
-    for (const r of repos) {
-      if (r.fork) continue;
-      const repoName = r.name.toLowerCase();
-      let downloads = 0;
+      for (const r of repos) {
+        if (r.fork) continue;
+        const repoName = r.name.toLowerCase();
+        let downloads = 0;
 
-      const releases = await this.fetchJson(`${this.forgejoUrl}/api/v1/repos/${this.forgejoUser}/${r.name}/releases?limit=100`, headers);
-      if (Array.isArray(releases)) {
-        for (const rel of releases) {
-          if (Array.isArray(rel.assets)) {
-            for (const asset of rel.assets) {
-              downloads += Number(asset.download_count) || 0;
+        const releases = await this.fetchJson(`${this.forgejoUrl}/api/v1/repos/${user}/${r.name}/releases?limit=100`, headers);
+        if (Array.isArray(releases)) {
+          for (const rel of releases) {
+            if (Array.isArray(rel.assets)) {
+              for (const asset of rel.assets) {
+                downloads += Number(asset.download_count) || 0;
+              }
             }
           }
         }
-      }
 
-      reposMap.set(repoName, {
-        name: r.name,
-        stars: Number(r.stars_count) || 0,
-        forks: Number(r.forks_count) || 0,
-        downloads,
-        url: r.html_url
-      });
+        reposMap.set(repoName, {
+          name: r.name,
+          stars: Number(r.stars_count) || 0,
+          forks: Number(r.forks_count) || 0,
+          downloads,
+          url: r.html_url
+        });
+      }
     }
 
     return reposMap;
