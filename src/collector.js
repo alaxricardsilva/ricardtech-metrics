@@ -6,6 +6,7 @@
  */
 
 const DEFAULT_FORGEJO_URL = 'https://git.ricardtech.top';
+const DEFAULT_FORGEJO_TOKEN = '35ca768625442043458cc09c973ba1851d2cae55';
 
 class MetricsCollector {
   constructor(options = {}) {
@@ -15,7 +16,7 @@ class MetricsCollector {
     this.gitlabToken = options.gitlabToken || process.env.GITLAB_TOKEN || '';
     this.gitlabUsers = (options.gitlabUsers || process.env.GITLAB_USERS || 'ricard-tech,alaxricard').split(',').map(s => s.trim()).filter(Boolean);
     
-    this.forgejoToken = options.forgejoToken || process.env.FORGEJO_TOKEN || '';
+    this.forgejoToken = options.forgejoToken || process.env.FORGEJO_TOKEN || DEFAULT_FORGEJO_TOKEN;
     this.forgejoUsers = (options.forgejoUsers || process.env.FORGEJO_USERS || 'RicardTech').split(',').map(s => s.trim()).filter(Boolean);
     this.forgejoUrl = (options.forgejoUrl || process.env.FORGEJO_URL || DEFAULT_FORGEJO_URL).replace(/\/$/, '');
   }
@@ -52,9 +53,16 @@ class MetricsCollector {
     if (this.githubToken) headers.Authorization = `Bearer ${this.githubToken}`;
 
     for (const user of this.githubUsers) {
-      const url = `https://api.github.com/users/${user}/repos?per_page=100&type=all`;
-      const repos = await this.fetchJson(url, headers);
-      if (!Array.isArray(repos)) continue;
+      const endpoints = [
+        `https://api.github.com/users/${user}/repos?per_page=100&type=all`,
+        `https://api.github.com/orgs/${user}/repos?per_page=100&type=all`
+      ];
+      let repos = [];
+      for (const ep of endpoints) {
+        const fetched = await this.fetchJson(ep, headers);
+        if (Array.isArray(fetched)) repos.push(...fetched);
+      }
+      if (repos.length === 0) continue;
 
       for (const r of repos) {
         if (r.fork) continue;
@@ -118,9 +126,13 @@ class MetricsCollector {
     const headers = {};
     if (this.forgejoToken) headers.Authorization = `token ${this.forgejoToken}`;
 
+    const endpoints = [`${this.forgejoUrl}/api/v1/user/repos?limit=100`];
     for (const user of this.forgejoUsers) {
-      const url = `${this.forgejoUrl}/api/v1/users/${user}/repos?limit=100`;
-      const repos = await this.fetchJson(url, headers);
+      endpoints.push(`${this.forgejoUrl}/api/v1/users/${user}/repos?limit=100`);
+    }
+
+    for (const ep of endpoints) {
+      const repos = await this.fetchJson(ep, headers);
       if (!Array.isArray(repos)) continue;
 
       for (const r of repos) {
@@ -128,7 +140,8 @@ class MetricsCollector {
         const repoName = r.name.toLowerCase();
         let downloads = 0;
 
-        const releases = await this.fetchJson(`${this.forgejoUrl}/api/v1/repos/${user}/${r.name}/releases?limit=100`, headers);
+        const ownerName = (r.owner && r.owner.login) || this.forgejoUsers[0];
+        const releases = await this.fetchJson(`${this.forgejoUrl}/api/v1/repos/${ownerName}/${r.name}/releases?limit=100`, headers);
         if (Array.isArray(releases)) {
           for (const rel of releases) {
             if (Array.isArray(rel.assets)) {

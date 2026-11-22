@@ -1,0 +1,39 @@
+{
+  "repository": "repo",
+  "createdAt": "2026-11-22T01:09:02.635Z",
+  "updatedAt": "2026-11-22T01:11:21.135Z",
+  "latest": {
+    "totals": {
+      "stars": 0,
+      "forks": 0,
+      "downloads": 19
+    },
+    "breakdown": {
+      "github": {
+        "stars": 0,
+        "forks": 0,
+        "downloads": 19
+      },
+      "gitlab": {
+        "stars": 0,
+        "forks": 0,
+        "downloads": 0
+      },
+      "forgejo": {
+        "stars": 0,
+        "forks": 0,
+        "downloads": 0
+      }
+    }
+  },
+  "history": [
+    {
+      "timestamp": "2026-11-22T01:11:21.135Z",
+      "date": "2026-11-22",
+      "stars": 0,
+      "forks": 0,
+      "downloads": 19
+    }
+  ],
+  "displayName": "repo"
+}

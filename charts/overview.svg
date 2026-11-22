@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="100%" height="320" style="max-width:760px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <style>
+    .bg { fill: #0d1117; stroke: #30363d; }
+    .card { fill: #161b22; stroke: #30363d; }
+    .title { fill: #f0f6fc; font-size: 18px; font-weight: 700; }
+    .meta { fill: #8b949e; font-size: 11px; }
+    .stat-label { fill: #8b949e; font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+    .stat-val { fill: #f0f6fc; font-size: 22px; font-weight: 700; }
+    .row-rank { fill: #8b949e; font-size: 11px; font-weight: 600; }
+    .row-name { fill: #58a6ff; font-size: 12px; font-weight: 600; }
+    .row-stat { fill: #e6edf3; font-size: 12px; }
+    .tag { fill: #238636; fill-opacity: 0.2; stroke: #2ea043; }
+    .tag-text { fill: #3fb950; font-size: 10px; font-weight: 600; }
+    @media (prefers-color-scheme: light) {
+      .bg { fill: #ffffff; stroke: #d0d7de; }
+      .card { fill: #f6f8fa; stroke: #d0d7de; }
+      .title { fill: #1f2328; }
+      .meta { fill: #656d76; }
+      .stat-label { fill: #656d76; }
+      .stat-val { fill: #1f2328; }
+      .row-rank { fill: #656d76; }
+      .row-name { fill: #0969da; }
+      .row-stat { fill: #1f2328; }
+      .tag { fill: #dafbe1; stroke: #1a7f37; }
+      .tag-text { fill: #1a7f37; }
+    }
+  </style>
+
+  <rect class="bg" x="0.5" y="0.5" width="759" height="319" rx="10" stroke-width="1" />
+
+  <!-- Header -->
+  <g transform="translate(24, 22)">
+    <text class="title" x="0" y="16">Ecossistema Ricard Tech · Métricas Globais</text>
+    <rect class="tag" x="380" y="2" width="160" height="20" rx="10" stroke-width="1"/>
+    <text class="tag-text" x="460" y="16" text-anchor="middle">GitHub + GitLab + Forgejo</text>
+    <text class="meta" x="712" y="16" text-anchor="end">Atualizado: 21 de nov. de 2026</text>
+  </g>
+
+  <!-- 4 Cards Top Grid -->
+  <g transform="translate(24, 60)">
+    <!-- Repos -->
+    <g transform="translate(0, 0)">
+      <rect class="card" width="168" height="75" rx="8" stroke-width="1"/>
+      <g transform="translate(14, 16)">
+        <text class="stat-label" x="0" y="0">Repositórios</text>
+        <text class="stat-val" x="0" y="28">📁 68</text>
+      </g>
+    </g>
+
+    <!-- Estrelas -->
+    <g transform="translate(181, 0)">
+      <rect class="card" width="168" height="75" rx="8" stroke-width="1"/>
+      <g transform="translate(14, 16)">
+        <text class="stat-label" x="0" y="0">Total Estrelas</text>
+        <text class="stat-val" x="0" y="28">⭐ 6</text>
+      </g>
+    </g>
+
+    <!-- Forks -->
+    <g transform="translate(362, 0)">
+      <rect class="card" width="168" height="75" rx="8" stroke-width="1"/>
+      <g transform="translate(14, 16)">
+        <text class="stat-label" x="0" y="0">Total Forks</text>
+        <text class="stat-val" x="0" y="28">🍴 1</text>
+      </g>
+    </g>
+
+    <!-- Downloads -->
+    <g transform="translate(543, 0)">
+      <rect class="card" width="168" height="75" rx="8" stroke-width="1"/>
+      <g transform="translate(14, 16)">
+        <text class="stat-label" x="0" y="0">Total Downloads</text>
+        <text class="stat-val" x="0" y="28">📦 21</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Top Repos Table Card -->
+  <g transform="translate(24, 150)">
+    <rect class="card" width="712" height="150" rx="8" stroke-width="1"/>
+    <g transform="translate(20, 20)">
+      <text class="stat-label" x="0" y="0">Projetos em Destaque no Ecossistema</text>
+      <g transform="translate(0, 16)">
+        
+      <g transform="translate(0, 0)">
+        <text class="row-rank" x="0" y="15">#1</text>
+        <text class="row-name" x="25" y="15">Painel_Unificado</text>
+        <text class="row-stat" x="260" y="15" text-anchor="end">⭐ 1</text>
+        <text class="row-stat" x="330" y="15" text-anchor="end">🍴 0</text>
+        <text class="row-stat" x="410" y="15" text-anchor="end">📦 2</text>
+      </g>
+    
+      <g transform="translate(0, 26)">
+        <text class="row-rank" x="0" y="15">#2</text>
+        <text class="row-name" x="25" y="15">adguard-home-manager-releases</text>
+        <text class="row-stat" x="260" y="15" text-anchor="end">⭐ 1</text>
+        <text class="row-stat" x="330" y="15" text-anchor="end">🍴 0</text>
+        <text class="row-stat" x="410" y="15" text-anchor="end">📦 0</text>
+      </g>
+    
+      <g transform="translate(0, 52)">
+        <text class="row-rank" x="0" y="15">#3</text>
+        <text class="row-name" x="25" y="15">warp-proxy</text>
+        <text class="row-stat" x="260" y="15" text-anchor="end">⭐ 1</text>
+        <text class="row-stat" x="330" y="15" text-anchor="end">🍴 0</text>
+        <text class="row-stat" x="410" y="15" text-anchor="end">📦 0</text>
+      </g>
+    
+      <g transform="translate(0, 78)">
+        <text class="row-rank" x="0" y="15">#4</text>
+        <text class="row-name" x="25" y="15">wuzapi</text>
+        <text class="row-stat" x="260" y="15" text-anchor="end">⭐ 1</text>
+        <text class="row-stat" x="330" y="15" text-anchor="end">🍴 0</text>
+        <text class="row-stat" x="410" y="15" text-anchor="end">📦 0</text>
+      </g>
+    
+      <g transform="translate(0, 104)">
+        <text class="row-rank" x="0" y="15">#5</text>
+        <text class="row-name" x="25" y="15">ricard-zap</text>
+        <text class="row-stat" x="260" y="15" text-anchor="end">⭐ 1</text>
+        <text class="row-stat" x="330" y="15" text-anchor="end">🍴 1</text>
+        <text class="row-stat" x="410" y="15" text-anchor="end">📦 0</text>
+      </g>
+    
+      </g>
+    </g>
+  </g>
+</svg>
