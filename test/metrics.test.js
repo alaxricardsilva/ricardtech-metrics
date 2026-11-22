@@ -2,84 +2,39 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const fs = require('node:fs');
-const path = require('node:path');
-const os = require('node:os');
 
-const { renderRepoSvg, renderOverviewSvg, formatNumber, escapeXml } = require('../src/svg');
-const { HistoryManager } = require('../src/history');
+const { renderDashboardSvg, compact, prettyDate, escapeXml } = require('../src/svg');
 
-test('formatNumber formata k e M corretamente', () => {
-  assert.equal(formatNumber(50), '50');
-  assert.equal(formatNumber(1200), '1.2k');
-  assert.equal(formatNumber(1000000), '1M');
-  assert.equal(formatNumber(2500000), '2.5M');
+test('compact formata k e M corretamente', () => {
+  assert.equal(compact(50), '50');
+  assert.equal(compact(1200), '1.2k');
+  assert.equal(compact(1000000), '1M');
 });
 
 test('escapeXml protege caracteres perigosos', () => {
   assert.equal(escapeXml('<script>&"test"\''), '&lt;script&gt;&amp;&quot;test&quot;&apos;');
 });
 
-test('renderRepoSvg gera SVG com dados corretos e modo dark/light', () => {
-  const repoData = {
-    slug: 'deskmax-crm',
-    displayName: 'DeskMax CRM',
-    updatedAt: '2026-11-21T12:00:00Z',
-    totals: { stars: 42, forks: 8, downloads: 150 },
-    breakdown: {
-      github: { stars: 30, forks: 5, downloads: 100 },
-      gitlab: { stars: 2, forks: 1, downloads: 0 },
-      forgejo: { stars: 10, forks: 2, downloads: 50 }
-    }
-  };
-
-  const svg = renderRepoSvg(repoData, { history: [{ stars: 40 }, { stars: 42 }] });
-  assert.ok(svg.startsWith('<svg'), 'Deve iniciar com tag svg');
-  assert.ok(svg.includes('DeskMax CRM'), 'Deve conter o nome do repo');
-  assert.ok(svg.includes('⭐ 42'), 'Deve conter o total de estrelas');
-  assert.ok(svg.includes('🍴 8'), 'Deve conter o total de forks');
-  assert.ok(svg.includes('📦 150'), 'Deve conter o total de downloads');
-  assert.ok(svg.includes('prefers-color-scheme: light'), 'Deve ter suporte a tema claro');
-});
-
-test('renderOverviewSvg gera visão global do ecossistema', () => {
-  const totals = { repositories: 62, stars: 250, forks: 45, downloads: 1800 };
-  const topRepos = [
-    { displayName: 'DeskMax CRM', totals: { stars: 50, forks: 10, downloads: 500 } },
-    { displayName: 'PaperPlane Next', totals: { stars: 40, forks: 8, downloads: 300 } }
+test('renderDashboardSvg gera dashboard idêntico ao oficial com Commits, Tags e Releases em pt-BR', () => {
+  const points = [
+    { date: '2026-01-01', commits: 10, tags: 1, releases: 1 },
+    { date: '2026-06-01', commits: 50, tags: 5, releases: 5 },
+    { date: '2026-11-21', commits: 120, tags: 12, releases: 12 }
   ];
 
-  const svg = renderOverviewSvg(totals, topRepos);
-  assert.ok(svg.includes('📁 62'), 'Deve listar 62 repositórios');
-  assert.ok(svg.includes('⭐ 250'), 'Deve exibir 250 estrelas');
-  assert.ok(svg.includes('DeskMax CRM'), 'Deve listar o top repo');
-});
+  const svg = renderDashboardSvg({
+    repository: 'RicardTech/deskmax-crm',
+    title: 'DeskMax CRM · Crescimento',
+    points,
+    updatedAt: '2026-11-21T12:00:00Z',
+    metrics: ['commits', 'tags', 'releases']
+  });
 
-test('HistoryManager salva e carrega histórico sem duplicatas no mesmo dia', () => {
-  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'metrics-test-'));
-  const manager = new HistoryManager(tempDir);
-
-  const repo = {
-    slug: 'test-repo',
-    displayName: 'Test Repo',
-    totals: { stars: 10, forks: 2, downloads: 5 },
-    breakdown: {
-      github: { stars: 10, forks: 2, downloads: 5 },
-      gitlab: { stars: 0, forks: 0, downloads: 0 },
-      forgejo: { stars: 0, forks: 0, downloads: 0 }
-    }
-  };
-
-  const date = new Date('2026-11-21T12:00:00Z');
-  manager.saveRepoHistory('test-repo', repo, date);
-  
-  // Salvar no mesmo dia deve atualizar o mesmo ponto
-  repo.totals.stars = 12;
-  manager.saveRepoHistory('test-repo', repo, date);
-
-  const loaded = manager.loadRepoHistory('test-repo');
-  assert.equal(loaded.history.length, 1, 'Deve ter apenas 1 ponto para o mesmo dia');
-  assert.equal(loaded.history[0].stars, 12, 'Deve ter atualizado o ponto do dia');
-
-  fs.rmSync(tempDir, { recursive: true, force: true });
+  assert.ok(svg.includes('DeskMax CRM · Crescimento'), 'Deve conter título');
+  assert.ok(svg.includes('COMMITS'), 'Deve conter métrica COMMITS');
+  assert.ok(svg.includes('TAGS'), 'Deve conter métrica TAGS');
+  assert.ok(svg.includes('RELEASES'), 'Deve conter métrica RELEASES');
+  assert.ok(svg.includes('HISTÓRICO LOCAL'), 'Deve conter tag HISTÓRICO LOCAL');
+  assert.ok(svg.includes('Gerado por RicardTech Metrics ↗'), 'Deve conter assinatura em pt-BR');
+  assert.ok(svg.includes('prefers-color-scheme: dark'), 'Deve suportar modo escuro e claro');
 });

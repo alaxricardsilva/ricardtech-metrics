@@ -1,7 +1,7 @@
 {
   "repository": "adguard-home-manager",
   "createdAt": "2026-11-22T01:11:21.161Z",
-  "updatedAt": "2026-11-22T01:11:21.161Z",
+  "updatedAt": "2026-11-22T01:16:39.756Z",
   "latest": {
     "totals": {
       "stars": 0,
@@ -28,7 +28,7 @@
   },
   "history": [
     {
-      "timestamp": "2026-11-22T01:11:21.161Z",
+      "timestamp": "2026-11-22T01:16:39.756Z",
       "date": "2026-11-22",
       "stars": 0,
       "forks": 0,

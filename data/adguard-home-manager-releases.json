@@ -1,16 +1,16 @@
 {
   "repository": "adguard-home-manager-releases",
   "createdAt": "2026-11-22T01:09:02.552Z",
-  "updatedAt": "2026-11-22T01:11:21.125Z",
+  "updatedAt": "2026-11-22T01:16:39.757Z",
   "latest": {
     "totals": {
-      "stars": 1,
+      "stars": 0,
       "forks": 0,
       "downloads": 0
     },
     "breakdown": {
       "github": {
-        "stars": 1,
+        "stars": 0,
         "forks": 0,
         "downloads": 0
       },
@@ -28,9 +28,9 @@
   },
   "history": [
     {
-      "timestamp": "2026-11-22T01:11:21.125Z",
+      "timestamp": "2026-11-22T01:16:39.757Z",
       "date": "2026-11-22",
-      "stars": 1,
+      "stars": 0,
       "forks": 0,
       "downloads": 0
     }

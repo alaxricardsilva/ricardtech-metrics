@@ -1,0 +1,90 @@
+{
+  "repository": "painel-unificado",
+  "updatedAt": "2026-11-22T01:26:58.681Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 74,
+    "tags": 24,
+    "releases": 24
+  },
+  "points": [
+    {
+      "date": "2026-10-31",
+      "commits": 13,
+      "tags": 1,
+      "releases": 1
+    },
+    {
+      "date": "2026-11-01",
+      "commits": 32,
+      "tags": 10,
+      "releases": 10
+    },
+    {
+      "date": "2026-11-02",
+      "commits": 40,
+      "tags": 11,
+      "releases": 11
+    },
+    {
+      "date": "2026-11-03",
+      "commits": 44,
+      "tags": 13,
+      "releases": 13
+    },
+    {
+      "date": "2026-11-04",
+      "commits": 48,
+      "tags": 13,
+      "releases": 13
+    },
+    {
+      "date": "2026-11-10",
+      "commits": 50,
+      "tags": 14,
+      "releases": 14
+    },
+    {
+      "date": "2026-11-11",
+      "commits": 51,
+      "tags": 15,
+      "releases": 15
+    },
+    {
+      "date": "2026-11-12",
+      "commits": 52,
+      "tags": 16,
+      "releases": 16
+    },
+    {
+      "date": "2026-11-16",
+      "commits": 59,
+      "tags": 17,
+      "releases": 17
+    },
+    {
+      "date": "2026-11-17",
+      "commits": 63,
+      "tags": 19,
+      "releases": 19
+    },
+    {
+      "date": "2026-11-20",
+      "commits": 69,
+      "tags": 22,
+      "releases": 22
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 74,
+      "tags": 24,
+      "releases": 24
+    },
+    {
+      "date": "2026-11-22",
+      "commits": 74,
+      "tags": 24,
+      "releases": 24
+    }
+  ]
+}

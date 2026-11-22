@@ -1,0 +1,162 @@
+{
+  "repository": "loja-apk",
+  "updatedAt": "2026-11-22T01:26:58.441Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 80,
+    "tags": 33,
+    "releases": 33
+  },
+  "points": [
+    {
+      "date": "2026-07-06",
+      "commits": 10,
+      "tags": 3,
+      "releases": 3
+    },
+    {
+      "date": "2026-07-11",
+      "commits": 27,
+      "tags": 3,
+      "releases": 3
+    },
+    {
+      "date": "2026-07-12",
+      "commits": 33,
+      "tags": 3,
+      "releases": 3
+    },
+    {
+      "date": "2026-07-18",
+      "commits": 36,
+      "tags": 3,
+      "releases": 3
+    },
+    {
+      "date": "2026-07-26",
+      "commits": 37,
+      "tags": 3,
+      "releases": 3
+    },
+    {
+      "date": "2026-07-29",
+      "commits": 38,
+      "tags": 5,
+      "releases": 5
+    },
+    {
+      "date": "2026-08-13",
+      "commits": 39,
+      "tags": 6,
+      "releases": 6
+    },
+    {
+      "date": "2026-08-16",
+      "commits": 40,
+      "tags": 7,
+      "releases": 7
+    },
+    {
+      "date": "2026-08-29",
+      "commits": 46,
+      "tags": 11,
+      "releases": 11
+    },
+    {
+      "date": "2026-08-30",
+      "commits": 50,
+      "tags": 14,
+      "releases": 14
+    },
+    {
+      "date": "2026-09-12",
+      "commits": 51,
+      "tags": 14,
+      "releases": 14
+    },
+    {
+      "date": "2026-09-26",
+      "commits": 52,
+      "tags": 15,
+      "releases": 15
+    },
+    {
+      "date": "2026-09-30",
+      "commits": 55,
+      "tags": 18,
+      "releases": 18
+    },
+    {
+      "date": "2026-10-01",
+      "commits": 57,
+      "tags": 20,
+      "releases": 20
+    },
+    {
+      "date": "2026-10-02",
+      "commits": 59,
+      "tags": 22,
+      "releases": 22
+    },
+    {
+      "date": "2026-10-03",
+      "commits": 60,
+      "tags": 23,
+      "releases": 23
+    },
+    {
+      "date": "2026-10-06",
+      "commits": 66,
+      "tags": 28,
+      "releases": 28
+    },
+    {
+      "date": "2026-10-17",
+      "commits": 68,
+      "tags": 30,
+      "releases": 30
+    },
+    {
+      "date": "2026-10-31",
+      "commits": 70,
+      "tags": 31,
+      "releases": 31
+    },
+    {
+      "date": "2026-11-05",
+      "commits": 73,
+      "tags": 32,
+      "releases": 32
+    },
+    {
+      "date": "2026-11-06",
+      "commits": 76,
+      "tags": 32,
+      "releases": 32
+    },
+    {
+      "date": "2026-11-07",
+      "commits": 77,
+      "tags": 32,
+      "releases": 32
+    },
+    {
+      "date": "2026-11-18",
+      "commits": 79,
+      "tags": 33,
+      "releases": 33
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 80,
+      "tags": 33,
+      "releases": 33
+    },
+    {
+      "date": "2026-11-22",
+      "commits": 80,
+      "tags": 33,
+      "releases": 33
+    }
+  ]
+}

@@ -1,39 +1,120 @@
 {
   "repository": "whaticket-backend",
-  "createdAt": "2026-11-22T01:11:21.186Z",
-  "updatedAt": "2026-11-22T01:11:21.186Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:27:04.222Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 24,
+    "tags": 54,
+    "releases": 54
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.186Z",
+      "date": "2026-05-04",
+      "commits": 0,
+      "tags": 1,
+      "releases": 1
+    },
+    {
+      "date": "2026-05-05",
+      "commits": 0,
+      "tags": 3,
+      "releases": 3
+    },
+    {
+      "date": "2026-05-07",
+      "commits": 0,
+      "tags": 7,
+      "releases": 7
+    },
+    {
+      "date": "2026-05-08",
+      "commits": 0,
+      "tags": 17,
+      "releases": 17
+    },
+    {
+      "date": "2026-05-14",
+      "commits": 0,
+      "tags": 18,
+      "releases": 18
+    },
+    {
+      "date": "2026-05-15",
+      "commits": 0,
+      "tags": 21,
+      "releases": 21
+    },
+    {
+      "date": "2026-05-23",
+      "commits": 0,
+      "tags": 23,
+      "releases": 23
+    },
+    {
+      "date": "2026-06-24",
+      "commits": 2,
+      "tags": 29,
+      "releases": 29
+    },
+    {
+      "date": "2026-06-26",
+      "commits": 3,
+      "tags": 30,
+      "releases": 30
+    },
+    {
+      "date": "2026-06-27",
+      "commits": 4,
+      "tags": 31,
+      "releases": 31
+    },
+    {
+      "date": "2026-06-28",
+      "commits": 5,
+      "tags": 32,
+      "releases": 32
+    },
+    {
+      "date": "2026-06-29",
+      "commits": 5,
+      "tags": 33,
+      "releases": 33
+    },
+    {
+      "date": "2026-06-30",
+      "commits": 12,
+      "tags": 45,
+      "releases": 45
+    },
+    {
+      "date": "2026-07-01",
+      "commits": 22,
+      "tags": 53,
+      "releases": 53
+    },
+    {
+      "date": "2026-07-02",
+      "commits": 22,
+      "tags": 54,
+      "releases": 54
+    },
+    {
+      "date": "2026-11-19",
+      "commits": 23,
+      "tags": 54,
+      "releases": 54
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 24,
+      "tags": 54,
+      "releases": 54
+    },
+    {
       "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
+      "commits": 24,
+      "tags": 54,
+      "releases": 54
     }
-  ],
-  "displayName": "whaticket-backend"
+  ]
 }

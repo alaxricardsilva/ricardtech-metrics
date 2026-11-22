@@ -1,39 +1,30 @@
 {
   "repository": "ricardtech_extension",
-  "createdAt": "2026-11-22T01:11:21.159Z",
-  "updatedAt": "2026-11-22T01:11:21.159Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:27:03.579Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 2,
+    "tags": 0,
+    "releases": 0
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.159Z",
+      "date": "2026-11-19",
+      "commits": 1,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 2,
+      "tags": 0,
+      "releases": 0
+    },
+    {
       "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
+      "commits": 2,
+      "tags": 0,
+      "releases": 0
     }
-  ],
-  "displayName": "RicardTech_Extension"
+  ]
 }

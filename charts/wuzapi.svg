@@ -42,12 +42,12 @@
       <rect class="card" width="224" height="135" rx="8" stroke-width="1"/>
       <g transform="translate(16, 18)">
         <text class="stat-label" x="0" y="0">Estrelas Multi-Cloud</text>
-        <text class="stat-val" x="0" y="28">⭐ 1</text>
+        <text class="stat-val" x="0" y="28">⭐ 0</text>
         <g transform="translate(0, 48)">
           <line x1="0" y1="20" x2="180" y2="20" stroke="#f59e0b" stroke-dasharray="3,3" stroke-width="1.5" opacity="0.4"/>
         </g>
         <g transform="translate(0, 100)">
-          <text class="sub-stat" x="0" y="0">GitHub: 1 · GitLab: 0 · Forgejo: 0</text>
+          <text class="sub-stat" x="0" y="0">GitHub: 0 · GitLab: 0 · Forgejo: 0</text>
         </g>
       </g>
     </g>

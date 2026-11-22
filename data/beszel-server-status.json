@@ -1,39 +1,144 @@
 {
   "repository": "beszel-server-status",
-  "createdAt": "2026-11-22T01:11:21.174Z",
-  "updatedAt": "2026-11-22T01:11:21.174Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:27:04.979Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 93,
+    "tags": 0,
+    "releases": 0
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.174Z",
+      "date": "2024-10-26",
+      "commits": 12,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-10-29",
+      "commits": 17,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-10-30",
+      "commits": 26,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-10-31",
+      "commits": 35,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-11-01",
+      "commits": 42,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-11-02",
+      "commits": 47,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-11-03",
+      "commits": 52,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-11-04",
+      "commits": 56,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-11-05",
+      "commits": 62,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-11-08",
+      "commits": 63,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-11-09",
+      "commits": 64,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-11-21",
+      "commits": 66,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-11-22",
+      "commits": 69,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-11-27",
+      "commits": 70,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-11-28",
+      "commits": 75,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2024-12-15",
+      "commits": 78,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2025-01-22",
+      "commits": 83,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2025-06-01",
+      "commits": 86,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2025-06-02",
+      "commits": 91,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2025-06-07",
+      "commits": 92,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 93,
+      "tags": 0,
+      "releases": 0
+    },
+    {
       "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
+      "commits": 93,
+      "tags": 0,
+      "releases": 0
     }
-  ],
-  "displayName": "beszel-server-status"
+  ]
 }

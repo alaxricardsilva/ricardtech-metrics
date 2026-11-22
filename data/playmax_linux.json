@@ -1,39 +1,114 @@
 {
   "repository": "playmax_linux",
-  "createdAt": "2026-11-22T01:11:21.155Z",
-  "updatedAt": "2026-11-22T01:11:21.155Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:26:58.870Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 36,
+    "tags": 0,
+    "releases": 0
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.155Z",
+      "date": "2026-09-14",
+      "commits": 6,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-09-15",
+      "commits": 7,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-09-16",
+      "commits": 9,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-09-17",
+      "commits": 11,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-09-18",
+      "commits": 15,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-09-19",
+      "commits": 21,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-09-21",
+      "commits": 22,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-09-23",
+      "commits": 23,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-09-28",
+      "commits": 26,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-09-30",
+      "commits": 27,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-10-05",
+      "commits": 29,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-10-16",
+      "commits": 32,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-10-17",
+      "commits": 33,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-10-18",
+      "commits": 34,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-10-19",
+      "commits": 35,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 36,
+      "tags": 0,
+      "releases": 0
+    },
+    {
       "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
+      "commits": 36,
+      "tags": 0,
+      "releases": 0
     }
-  ],
-  "displayName": "PlayMax_Linux"
+  ]
 }

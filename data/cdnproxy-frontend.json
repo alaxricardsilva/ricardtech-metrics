@@ -1,39 +1,408 @@
 {
   "repository": "cdnproxy-frontend",
-  "createdAt": "2026-11-22T01:11:21.176Z",
-  "updatedAt": "2026-11-22T01:11:21.176Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:27:01.946Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 299,
+    "tags": 120,
+    "releases": 120
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.176Z",
+      "date": "2026-04-18",
+      "commits": 17,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-19",
+      "commits": 18,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-21",
+      "commits": 23,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-22",
+      "commits": 28,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-23",
+      "commits": 42,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-24",
+      "commits": 43,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-25",
+      "commits": 45,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-26",
+      "commits": 47,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-27",
+      "commits": 60,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-29",
+      "commits": 68,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-30",
+      "commits": 84,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-05-01",
+      "commits": 106,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-05-02",
+      "commits": 121,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-05-03",
+      "commits": 122,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-05-04",
+      "commits": 126,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-05-05",
+      "commits": 127,
+      "tags": 2,
+      "releases": 2
+    },
+    {
+      "date": "2026-05-09",
+      "commits": 129,
+      "tags": 3,
+      "releases": 3
+    },
+    {
+      "date": "2026-05-10",
+      "commits": 147,
+      "tags": 6,
+      "releases": 6
+    },
+    {
+      "date": "2026-05-11",
+      "commits": 149,
+      "tags": 6,
+      "releases": 6
+    },
+    {
+      "date": "2026-05-12",
+      "commits": 155,
+      "tags": 7,
+      "releases": 7
+    },
+    {
+      "date": "2026-05-15",
+      "commits": 160,
+      "tags": 9,
+      "releases": 9
+    },
+    {
+      "date": "2026-05-19",
+      "commits": 167,
+      "tags": 12,
+      "releases": 12
+    },
+    {
+      "date": "2026-05-20",
+      "commits": 172,
+      "tags": 14,
+      "releases": 14
+    },
+    {
+      "date": "2026-05-22",
+      "commits": 174,
+      "tags": 15,
+      "releases": 15
+    },
+    {
+      "date": "2026-05-25",
+      "commits": 177,
+      "tags": 16,
+      "releases": 16
+    },
+    {
+      "date": "2026-05-27",
+      "commits": 180,
+      "tags": 17,
+      "releases": 17
+    },
+    {
+      "date": "2026-06-06",
+      "commits": 182,
+      "tags": 18,
+      "releases": 18
+    },
+    {
+      "date": "2026-06-21",
+      "commits": 183,
+      "tags": 18,
+      "releases": 18
+    },
+    {
+      "date": "2026-06-27",
+      "commits": 193,
+      "tags": 20,
+      "releases": 20
+    },
+    {
+      "date": "2026-07-09",
+      "commits": 195,
+      "tags": 21,
+      "releases": 21
+    },
+    {
+      "date": "2026-07-12",
+      "commits": 196,
+      "tags": 22,
+      "releases": 22
+    },
+    {
+      "date": "2026-07-13",
+      "commits": 197,
+      "tags": 23,
+      "releases": 23
+    },
+    {
+      "date": "2026-07-15",
+      "commits": 198,
+      "tags": 24,
+      "releases": 24
+    },
+    {
+      "date": "2026-07-17",
+      "commits": 199,
+      "tags": 25,
+      "releases": 25
+    },
+    {
+      "date": "2026-08-07",
+      "commits": 200,
+      "tags": 26,
+      "releases": 26
+    },
+    {
+      "date": "2026-08-13",
+      "commits": 204,
+      "tags": 29,
+      "releases": 29
+    },
+    {
+      "date": "2026-08-15",
+      "commits": 205,
+      "tags": 30,
+      "releases": 30
+    },
+    {
+      "date": "2026-09-04",
+      "commits": 206,
+      "tags": 31,
+      "releases": 31
+    },
+    {
+      "date": "2026-09-05",
+      "commits": 207,
+      "tags": 31,
+      "releases": 31
+    },
+    {
+      "date": "2026-09-12",
+      "commits": 211,
+      "tags": 33,
+      "releases": 33
+    },
+    {
+      "date": "2026-09-21",
+      "commits": 212,
+      "tags": 34,
+      "releases": 34
+    },
+    {
+      "date": "2026-09-22",
+      "commits": 216,
+      "tags": 38,
+      "releases": 38
+    },
+    {
+      "date": "2026-09-26",
+      "commits": 221,
+      "tags": 42,
+      "releases": 42
+    },
+    {
+      "date": "2026-10-01",
+      "commits": 226,
+      "tags": 51,
+      "releases": 51
+    },
+    {
+      "date": "2026-10-05",
+      "commits": 229,
+      "tags": 53,
+      "releases": 53
+    },
+    {
+      "date": "2026-10-08",
+      "commits": 231,
+      "tags": 55,
+      "releases": 55
+    },
+    {
+      "date": "2026-10-09",
+      "commits": 236,
+      "tags": 58,
+      "releases": 58
+    },
+    {
+      "date": "2026-10-10",
+      "commits": 248,
+      "tags": 72,
+      "releases": 72
+    },
+    {
+      "date": "2026-10-11",
+      "commits": 250,
+      "tags": 76,
+      "releases": 76
+    },
+    {
+      "date": "2026-10-12",
+      "commits": 253,
+      "tags": 79,
+      "releases": 79
+    },
+    {
+      "date": "2026-10-13",
+      "commits": 253,
+      "tags": 81,
+      "releases": 81
+    },
+    {
+      "date": "2026-10-15",
+      "commits": 259,
+      "tags": 89,
+      "releases": 89
+    },
+    {
+      "date": "2026-10-22",
+      "commits": 264,
+      "tags": 94,
+      "releases": 94
+    },
+    {
+      "date": "2026-10-23",
+      "commits": 265,
+      "tags": 95,
+      "releases": 95
+    },
+    {
+      "date": "2026-10-25",
+      "commits": 267,
+      "tags": 99,
+      "releases": 99
+    },
+    {
+      "date": "2026-10-26",
+      "commits": 271,
+      "tags": 99,
+      "releases": 99
+    },
+    {
+      "date": "2026-10-27",
+      "commits": 273,
+      "tags": 101,
+      "releases": 101
+    },
+    {
+      "date": "2026-10-29",
+      "commits": 274,
+      "tags": 102,
+      "releases": 102
+    },
+    {
+      "date": "2026-10-30",
+      "commits": 279,
+      "tags": 105,
+      "releases": 105
+    },
+    {
+      "date": "2026-10-31",
+      "commits": 284,
+      "tags": 110,
+      "releases": 110
+    },
+    {
+      "date": "2026-11-03",
+      "commits": 287,
+      "tags": 112,
+      "releases": 112
+    },
+    {
+      "date": "2026-11-10",
+      "commits": 292,
+      "tags": 116,
+      "releases": 116
+    },
+    {
+      "date": "2026-11-11",
+      "commits": 297,
+      "tags": 119,
+      "releases": 119
+    },
+    {
+      "date": "2026-11-12",
+      "commits": 298,
+      "tags": 120,
+      "releases": 120
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 299,
+      "tags": 120,
+      "releases": 120
+    },
+    {
       "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
+      "commits": 299,
+      "tags": 120,
+      "releases": 120
     }
-  ],
-  "displayName": "cdnproxy-frontend"
+  ]
 }

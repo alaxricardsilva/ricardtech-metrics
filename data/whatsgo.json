@@ -1,39 +1,192 @@
 {
   "repository": "whatsgo",
-  "createdAt": "2026-11-22T01:11:21.160Z",
-  "updatedAt": "2026-11-22T01:11:21.160Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:27:04.852Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 196,
+    "tags": 43,
+    "releases": 43
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.160Z",
+      "date": "2026-04-16",
+      "commits": 5,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-17",
+      "commits": 51,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-18",
+      "commits": 70,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-19",
+      "commits": 71,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-20",
+      "commits": 75,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-21",
+      "commits": 78,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-28",
+      "commits": 80,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-29",
+      "commits": 82,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-04-30",
+      "commits": 84,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-05-01",
+      "commits": 89,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-05-04",
+      "commits": 99,
+      "tags": 1,
+      "releases": 1
+    },
+    {
+      "date": "2026-05-05",
+      "commits": 100,
+      "tags": 3,
+      "releases": 3
+    },
+    {
+      "date": "2026-05-07",
+      "commits": 129,
+      "tags": 7,
+      "releases": 7
+    },
+    {
+      "date": "2026-05-08",
+      "commits": 145,
+      "tags": 17,
+      "releases": 17
+    },
+    {
+      "date": "2026-05-10",
+      "commits": 154,
+      "tags": 17,
+      "releases": 17
+    },
+    {
+      "date": "2026-05-14",
+      "commits": 156,
+      "tags": 18,
+      "releases": 18
+    },
+    {
+      "date": "2026-05-15",
+      "commits": 162,
+      "tags": 21,
+      "releases": 21
+    },
+    {
+      "date": "2026-05-23",
+      "commits": 166,
+      "tags": 23,
+      "releases": 23
+    },
+    {
+      "date": "2026-06-21",
+      "commits": 167,
+      "tags": 23,
+      "releases": 23
+    },
+    {
+      "date": "2026-06-24",
+      "commits": 175,
+      "tags": 27,
+      "releases": 27
+    },
+    {
+      "date": "2026-06-27",
+      "commits": 176,
+      "tags": 28,
+      "releases": 28
+    },
+    {
+      "date": "2026-06-29",
+      "commits": 177,
+      "tags": 29,
+      "releases": 29
+    },
+    {
+      "date": "2026-06-30",
+      "commits": 186,
+      "tags": 37,
+      "releases": 37
+    },
+    {
+      "date": "2026-07-01",
+      "commits": 187,
+      "tags": 39,
+      "releases": 39
+    },
+    {
+      "date": "2026-07-28",
+      "commits": 188,
+      "tags": 40,
+      "releases": 40
+    },
+    {
+      "date": "2026-09-05",
+      "commits": 193,
+      "tags": 42,
+      "releases": 42
+    },
+    {
+      "date": "2026-10-01",
+      "commits": 194,
+      "tags": 43,
+      "releases": 43
+    },
+    {
+      "date": "2026-11-19",
+      "commits": 195,
+      "tags": 43,
+      "releases": 43
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 196,
+      "tags": 43,
+      "releases": 43
+    },
+    {
       "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
+      "commits": 196,
+      "tags": 43,
+      "releases": 43
     }
-  ],
-  "displayName": "WhatsGo"
+  ]
 }

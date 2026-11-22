@@ -1,39 +1,48 @@
 {
   "repository": "ricardtech-portal",
-  "createdAt": "2026-11-22T01:11:21.180Z",
-  "updatedAt": "2026-11-22T01:11:21.180Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:27:05.626Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 11,
+    "tags": 1,
+    "releases": 1
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.180Z",
+      "date": "2026-06-29",
+      "commits": 5,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-06-30",
+      "commits": 8,
+      "tags": 1,
+      "releases": 1
+    },
+    {
+      "date": "2026-07-06",
+      "commits": 9,
+      "tags": 1,
+      "releases": 1
+    },
+    {
+      "date": "2026-11-19",
+      "commits": 10,
+      "tags": 1,
+      "releases": 1
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 11,
+      "tags": 1,
+      "releases": 1
+    },
+    {
       "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
+      "commits": 11,
+      "tags": 1,
+      "releases": 1
     }
-  ],
-  "displayName": "ricardtech-portal"
+  ]
 }

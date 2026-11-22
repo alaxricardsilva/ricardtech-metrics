@@ -1,39 +1,66 @@
 {
   "repository": "ricardhub",
-  "createdAt": "2026-11-22T01:11:21.157Z",
-  "updatedAt": "2026-11-22T01:11:21.157Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:27:03.135Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 31,
+    "tags": 12,
+    "releases": 12
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.157Z",
+      "date": "2026-10-21",
+      "commits": 4,
+      "tags": 1,
+      "releases": 1
+    },
+    {
+      "date": "2026-10-30",
+      "commits": 15,
+      "tags": 10,
+      "releases": 10
+    },
+    {
+      "date": "2026-10-31",
+      "commits": 23,
+      "tags": 11,
+      "releases": 11
+    },
+    {
+      "date": "2026-11-06",
+      "commits": 26,
+      "tags": 12,
+      "releases": 12
+    },
+    {
+      "date": "2026-11-07",
+      "commits": 27,
+      "tags": 12,
+      "releases": 12
+    },
+    {
+      "date": "2026-11-11",
+      "commits": 28,
+      "tags": 12,
+      "releases": 12
+    },
+    {
+      "date": "2026-11-12",
+      "commits": 30,
+      "tags": 12,
+      "releases": 12
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 31,
+      "tags": 12,
+      "releases": 12
+    },
+    {
       "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
+      "commits": 31,
+      "tags": 12,
+      "releases": 12
     }
-  ],
-  "displayName": "RicardHub"
+  ]
 }

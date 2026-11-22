@@ -1,39 +1,72 @@
 {
   "repository": "whaticket-frontend",
-  "createdAt": "2026-11-22T01:11:21.187Z",
-  "updatedAt": "2026-11-22T01:11:21.187Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:27:04.714Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 31,
+    "tags": 16,
+    "releases": 16
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.187Z",
+      "date": "2026-06-24",
+      "commits": 2,
+      "tags": 2,
+      "releases": 2
+    },
+    {
+      "date": "2026-06-26",
+      "commits": 3,
+      "tags": 3,
+      "releases": 3
+    },
+    {
+      "date": "2026-06-27",
+      "commits": 4,
+      "tags": 3,
+      "releases": 3
+    },
+    {
+      "date": "2026-06-28",
+      "commits": 14,
+      "tags": 4,
+      "releases": 4
+    },
+    {
+      "date": "2026-06-30",
+      "commits": 20,
+      "tags": 9,
+      "releases": 9
+    },
+    {
+      "date": "2026-07-01",
+      "commits": 25,
+      "tags": 14,
+      "releases": 14
+    },
+    {
+      "date": "2026-07-02",
+      "commits": 29,
+      "tags": 16,
+      "releases": 16
+    },
+    {
+      "date": "2026-11-19",
+      "commits": 30,
+      "tags": 16,
+      "releases": 16
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 31,
+      "tags": 16,
+      "releases": 16
+    },
+    {
       "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
+      "commits": 31,
+      "tags": 16,
+      "releases": 16
     }
-  ],
-  "displayName": "whaticket-frontend"
+  ]
 }

@@ -1,39 +1,42 @@
 {
   "repository": "warp-proxy",
-  "createdAt": "2026-11-22T01:09:02.633Z",
-  "updatedAt": "2026-11-22T01:11:21.132Z",
-  "latest": {
-    "totals": {
-      "stars": 1,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 1,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:27:02.056Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 7,
+    "tags": 0,
+    "releases": 0
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.132Z",
+      "date": "2026-03-09",
+      "commits": 3,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-07-29",
+      "commits": 5,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-07-30",
+      "commits": 6,
+      "tags": 0,
+      "releases": 0
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 7,
+      "tags": 0,
+      "releases": 0
+    },
+    {
       "date": "2026-11-22",
-      "stars": 1,
-      "forks": 0,
-      "downloads": 0
+      "commits": 7,
+      "tags": 0,
+      "releases": 0
     }
-  ],
-  "displayName": "warp-proxy"
+  ]
 }

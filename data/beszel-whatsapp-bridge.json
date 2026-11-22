@@ -1,39 +1,42 @@
 {
   "repository": "beszel-whatsapp-bridge",
-  "createdAt": "2026-11-22T01:11:21.175Z",
-  "updatedAt": "2026-11-22T01:11:21.175Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:27:05.101Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 6,
+    "tags": 2,
+    "releases": 2
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.175Z",
+      "date": "2026-05-15",
+      "commits": 3,
+      "tags": 2,
+      "releases": 2
+    },
+    {
+      "date": "2026-06-29",
+      "commits": 4,
+      "tags": 2,
+      "releases": 2
+    },
+    {
+      "date": "2026-11-19",
+      "commits": 5,
+      "tags": 2,
+      "releases": 2
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 6,
+      "tags": 2,
+      "releases": 2
+    },
+    {
       "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
+      "commits": 6,
+      "tags": 2,
+      "releases": 2
     }
-  ],
-  "displayName": "beszel-whatsapp-bridge"
+  ]
 }

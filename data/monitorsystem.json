@@ -1,39 +1,162 @@
 {
   "repository": "monitorsystem",
-  "createdAt": "2026-11-22T01:11:21.154Z",
-  "updatedAt": "2026-11-22T01:11:21.154Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-22T01:27:02.393Z",
+  "totals": {
+    "date": "2026-11-22",
+    "commits": 118,
+    "tags": 64,
+    "releases": 64
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.154Z",
+      "date": "2026-07-04",
+      "commits": 22,
+      "tags": 6,
+      "releases": 6
+    },
+    {
+      "date": "2026-07-06",
+      "commits": 36,
+      "tags": 20,
+      "releases": 20
+    },
+    {
+      "date": "2026-07-17",
+      "commits": 38,
+      "tags": 22,
+      "releases": 22
+    },
+    {
+      "date": "2026-08-01",
+      "commits": 39,
+      "tags": 23,
+      "releases": 23
+    },
+    {
+      "date": "2026-08-04",
+      "commits": 47,
+      "tags": 24,
+      "releases": 24
+    },
+    {
+      "date": "2026-08-23",
+      "commits": 50,
+      "tags": 25,
+      "releases": 25
+    },
+    {
+      "date": "2026-08-25",
+      "commits": 51,
+      "tags": 25,
+      "releases": 25
+    },
+    {
+      "date": "2026-08-26",
+      "commits": 71,
+      "tags": 38,
+      "releases": 38
+    },
+    {
+      "date": "2026-08-27",
+      "commits": 72,
+      "tags": 39,
+      "releases": 39
+    },
+    {
+      "date": "2026-08-28",
+      "commits": 73,
+      "tags": 40,
+      "releases": 40
+    },
+    {
+      "date": "2026-09-01",
+      "commits": 78,
+      "tags": 44,
+      "releases": 44
+    },
+    {
+      "date": "2026-09-12",
+      "commits": 83,
+      "tags": 49,
+      "releases": 49
+    },
+    {
+      "date": "2026-09-29",
+      "commits": 87,
+      "tags": 50,
+      "releases": 50
+    },
+    {
+      "date": "2026-09-30",
+      "commits": 91,
+      "tags": 51,
+      "releases": 51
+    },
+    {
+      "date": "2026-10-06",
+      "commits": 94,
+      "tags": 53,
+      "releases": 53
+    },
+    {
+      "date": "2026-10-07",
+      "commits": 104,
+      "tags": 58,
+      "releases": 58
+    },
+    {
+      "date": "2026-10-08",
+      "commits": 105,
+      "tags": 58,
+      "releases": 58
+    },
+    {
+      "date": "2026-10-11",
+      "commits": 106,
+      "tags": 58,
+      "releases": 58
+    },
+    {
+      "date": "2026-10-14",
+      "commits": 108,
+      "tags": 58,
+      "releases": 58
+    },
+    {
+      "date": "2026-10-16",
+      "commits": 109,
+      "tags": 58,
+      "releases": 58
+    },
+    {
+      "date": "2026-10-18",
+      "commits": 110,
+      "tags": 59,
+      "releases": 59
+    },
+    {
+      "date": "2026-10-22",
+      "commits": 111,
+      "tags": 60,
+      "releases": 60
+    },
+    {
+      "date": "2026-11-01",
+      "commits": 117,
+      "tags": 64,
+      "releases": 64
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 118,
+      "tags": 64,
+      "releases": 64
+    },
+    {
       "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
-      "downloads": 0
+      "commits": 118,
+      "tags": 64,
+      "releases": 64
     }
-  ],
-  "displayName": "MonitorSystem"
+  ]
 }

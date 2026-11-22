@@ -1,270 +1,206 @@
 'use strict';
 
 /**
- * Gerador de SVGs modernos, leves e responsivos com suporte a Dark/Light Mode nativo.
+ * Gerador de Dashboard SVG idêntico ao padrão oficial do repo-growth,
+ * focado em repositórios privados: Commits, Tags e Releases (100% em pt-BR).
  */
 
-function formatNumber(num) {
-  if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
-  if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
-  return String(num || 0);
-}
+const METRICS = [
+  { key: 'commits', label: 'Commits', color: '#8b5cf6', soft: '#c4b5fd' },
+  { key: 'tags', label: 'Tags', color: '#06b6d4', soft: '#67e8f9' },
+  { key: 'releases', label: 'Releases', color: '#f59e0b', soft: '#fcd34d' }
+];
 
-function escapeXml(unsafe) {
-  return String(unsafe || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
-}
+const DEFAULT_METRICS = ['commits', 'tags', 'releases'];
+const PROJECT_URL = 'https://git.ricardtech.top/RicardTech/ricardtech-metrics';
 
-function renderSparkline(points, width, height, color = '#10b981') {
-  if (!points || points.length < 2) {
-    return `<line x1="0" y1="${height / 2}" x2="${width}" y2="${height / 2}" stroke="${color}" stroke-dasharray="3,3" stroke-width="1.5" opacity="0.4"/>`;
+function renderDashboardSvg({ repository, title, points, updatedAt, metrics }) {
+  if (!Array.isArray(points) || points.length === 0) {
+    points = [{ date: new Date().toISOString().slice(0, 10), commits: 1, tags: 0, releases: 0 }];
   }
 
-  const values = points.map((p) => p.value);
-  const min = Math.min(...values);
-  const max = Math.max(...values);
-  const range = max - min || 1;
+  const selectedMetrics = resolveMetrics(metrics);
+  const latest = points.at(-1);
+  const first = points[0];
+  const width = 1000;
+  const surfaceHeight = 230 + selectedMetrics.length * 217;
+  const height = surfaceHeight + 76;
 
-  const coords = points.map((p, i) => {
-    const x = (i / (points.length - 1)) * width;
-    const y = height - ((p.value - min) / range) * (height - 8) - 4;
-    return `${x.toFixed(1)},${y.toFixed(1)}`;
-  });
+  const displayTitle = title || `${repository} · Evolução`;
+  const cards = selectedMetrics.map((metric, index) => statCard(metric, latest, points, index, selectedMetrics.length)).join('');
+  const charts = selectedMetrics.map((metric, index) => chartPanel(metric, points, index)).join('');
+  const range = first.date === latest.date ? `Histórico desde ${prettyDate(first.date)}` : `${prettyDate(first.date)} – ${prettyDate(latest.date)}`;
 
-  const polyline = coords.join(' ');
-  const areaCoords = `0,${height} ${polyline} ${width},${height}`;
-
-  return `
-    <polygon points="${areaCoords}" fill="${color}" fill-opacity="0.12" />
-    <polyline points="${polyline}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-  `;
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc">
+  <title id="title">${escapeXml(displayTitle)}</title>
+  <desc id="desc">Painel de crescimento e evolução de ${escapeXml(selectedMetrics.map((m) => m.label.toLowerCase()).join(', '))} ao longo do tempo.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fafafa"/><stop offset="1" stop-color="#f4f4f5"/>
+    </linearGradient>
+    ${selectedMetrics.map((metric) => `<linearGradient id="fill-${metric.key}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${metric.color}" stop-opacity=".24"/><stop offset="1" stop-color="${metric.color}" stop-opacity="0"/></linearGradient>`).join('')}
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#18181b" flood-opacity=".08"/></filter>
+    <style>
+      :root { color-scheme: light dark; }
+      .bg { fill: url(#background); }
+      .surface { fill: #ffffff; stroke: #e4e4e7; }
+      .panel { fill: #ffffff; stroke: #e4e4e7; }
+      .primary { fill: #18181b; }
+      .secondary { fill: #71717a; }
+      .grid { stroke: #e4e4e7; }
+      text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #09090b; }
+        .surface, .panel { fill: #111113; stroke: #27272a; }
+        .primary { fill: #fafafa; }
+        .secondary { fill: #a1a1aa; }
+        .grid { stroke: #27272a; }
+      }
+    </style>
+  </defs>
+  <rect class="bg" width="1000" height="${height}" rx="28"/>
+  <g transform="translate(42 38)">
+    <rect x="0" y="0" width="916" height="${surfaceHeight}" rx="22" class="surface" filter="url(#shadow)"/>
+    <text x="30" y="45" class="primary" font-size="26" font-weight="750" letter-spacing="-.5">${escapeXml(displayTitle)}</text>
+    <text x="30" y="70" class="secondary" font-size="14">${escapeXml(repository)} · ${escapeXml(range)}</text>
+    <g transform="translate(740 25)">
+      <rect width="146" height="30" rx="15" fill="#8b5cf6" fill-opacity=".12"/>
+      <circle cx="17" cy="15" r="4" fill="#8b5cf6"/>
+      <text x="30" y="20" fill="#8b5cf6" font-size="11" font-weight="700" letter-spacing="1">HISTÓRICO LOCAL</text>
+    </g>
+    ${cards}
+    ${charts}
+    <text x="30" y="${surfaceHeight - 19}" class="secondary" font-size="11">Atualizado em ${escapeXml(prettyTimestamp(updatedAt))}</text>
+    <a href="${PROJECT_URL}" target="_blank" aria-label="Abrir projeto RicardTech Metrics">
+      <text x="886" y="${surfaceHeight - 19}" fill="#8b5cf6" text-anchor="end" font-size="13" font-weight="700">Gerado por RicardTech Metrics ↗</text>
+    </a>
+  </g>
+</svg>
+`;
 }
 
-function renderRepoSvg(repoData, historyData) {
-  const title = escapeXml(repoData.displayName || repoData.slug);
-  const updatedAt = new Date(repoData.updatedAt || Date.now()).toLocaleDateString('pt-BR', {
-    day: '2-digit', month: 'short', year: 'numeric'
-  });
+function statCard(metric, latest, points, index, count) {
+  const gap = 20;
+  const cardWidth = (856 - gap * (count - 1)) / count;
+  const x = 30 + index * (cardWidth + gap);
+  const value = Number(latest[metric.key]) || 0;
+  const firstMetricPoint = points.find((p) => p[metric.key] !== null && p[metric.key] !== undefined) || points[0];
+  const delta = value - (Number(firstMetricPoint[metric.key]) || 0);
+  const deltaText = delta === 0 ? 'Sem alterações' : `+${compact(delta)} registrados`;
 
-  const stars = repoData.totals.stars;
-  const forks = repoData.totals.forks;
-  const downloads = repoData.totals.downloads;
-
-  const gh = repoData.breakdown.github;
-  const gl = repoData.breakdown.gitlab;
-  const fj = repoData.breakdown.forgejo;
-
-  const starPoints = (historyData && historyData.history || []).map((h) => ({ value: h.stars }));
-  const sparklineSvg = renderSparkline(starPoints, 180, 40, '#f59e0b');
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 210" width="100%" height="210" style="max-width:760px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
-  <style>
-    .bg { fill: #0d1117; stroke: #30363d; }
-    .card { fill: #161b22; stroke: #30363d; }
-    .title { fill: #f0f6fc; font-size: 16px; font-weight: 600; }
-    .meta { fill: #8b949e; font-size: 11px; }
-    .stat-label { fill: #8b949e; font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
-    .stat-val { fill: #f0f6fc; font-size: 24px; font-weight: 700; }
-    .sub-stat { fill: #8b949e; font-size: 10px; }
-    .tag { fill: #238636; fill-opacity: 0.2; stroke: #2ea043; }
-    .tag-text { fill: #3fb950; font-size: 10px; font-weight: 600; }
-    @media (prefers-color-scheme: light) {
-      .bg { fill: #ffffff; stroke: #d0d7de; }
-      .card { fill: #f6f8fa; stroke: #d0d7de; }
-      .title { fill: #1f2328; }
-      .meta { fill: #656d76; }
-      .stat-label { fill: #656d76; }
-      .stat-val { fill: #1f2328; }
-      .sub-stat { fill: #656d76; }
-      .tag { fill: #dafbe1; stroke: #1a7f37; }
-      .tag-text { fill: #1a7f37; }
-    }
-  </style>
-
-  <!-- Container -->
-  <rect class="bg" x="0.5" y="0.5" width="759" height="209" rx="10" stroke-width="1" />
-
-  <!-- Header -->
-  <g transform="translate(24, 20)">
-    <!-- Ícone Repo -->
-    <path fill="#10b981" d="M3 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-11zM4 3v10h6V3H4z"/>
-    <text class="title" x="18" y="14">${title}</text>
-    <rect class="tag" x="320" y="2" width="130" height="18" rx="9" stroke-width="1"/>
-    <text class="tag-text" x="385" y="14" text-anchor="middle">Triplo-Push Sincronizado</text>
-    <text class="meta" x="712" y="14" text-anchor="end">Atualizado: ${updatedAt}</text>
-  </g>
-
-  <!-- Cards Grid -->
-  <g transform="translate(24, 55)">
-    <!-- Card 1: Stars -->
-    <g transform="translate(0, 0)">
-      <rect class="card" width="224" height="135" rx="8" stroke-width="1"/>
-      <g transform="translate(16, 18)">
-        <text class="stat-label" x="0" y="0">Estrelas Multi-Cloud</text>
-        <text class="stat-val" x="0" y="28">⭐ ${formatNumber(stars)}</text>
-        <g transform="translate(0, 48)">
-          ${sparklineSvg}
-        </g>
-        <g transform="translate(0, 100)">
-          <text class="sub-stat" x="0" y="0">GitHub: ${gh.stars} · GitLab: ${gl.stars} · Forgejo: ${fj.stars}</text>
-        </g>
-      </g>
-    </g>
-
-    <!-- Card 2: Forks -->
-    <g transform="translate(244, 0)">
-      <rect class="card" width="224" height="135" rx="8" stroke-width="1"/>
-      <g transform="translate(16, 18)">
-        <text class="stat-label" x="0" y="0">Forks &amp; Derivados</text>
-        <text class="stat-val" x="0" y="28">🍴 ${formatNumber(forks)}</text>
-        <g transform="translate(0, 48)">
-          <rect fill="#3b82f6" fill-opacity="0.1" width="192" height="38" rx="6"/>
-          <text class="meta" x="96" y="24" text-anchor="middle">Ecossistema Colaborativo</text>
-        </g>
-        <g transform="translate(0, 100)">
-          <text class="sub-stat" x="0" y="0">GitHub: ${gh.forks} · GitLab: ${gl.forks} · Forgejo: ${fj.forks}</text>
-        </g>
-      </g>
-    </g>
-
-    <!-- Card 3: Release Downloads -->
-    <g transform="translate(488, 0)">
-      <rect class="card" width="224" height="135" rx="8" stroke-width="1"/>
-      <g transform="translate(16, 18)">
-        <text class="stat-label" x="0" y="0">Downloads de Releases</text>
-        <text class="stat-val" x="0" y="28">📦 ${formatNumber(downloads)}</text>
-        <g transform="translate(0, 48)">
-          <rect fill="#10b981" fill-opacity="0.1" width="192" height="38" rx="6"/>
-          <text class="meta" x="96" y="24" text-anchor="middle">Instalações e Pacotes</text>
-        </g>
-        <g transform="translate(0, 100)">
-          <text class="sub-stat" x="0" y="0">GitHub: ${gh.downloads} · GitLab: ${gl.downloads} · Forgejo: ${fj.downloads}</text>
-        </g>
-      </g>
-    </g>
-  </g>
-</svg>`;
+  return `<g transform="translate(${x} 92)">
+    <rect width="${cardWidth}" height="86" rx="16" class="panel"/>
+    <rect x="16" y="17" width="6" height="52" rx="3" fill="${metric.color}"/>
+    <text x="38" y="34" class="secondary" font-size="12" font-weight="650" letter-spacing=".3">${metric.label.toUpperCase()}</text>
+    <text x="38" y="64" class="primary" font-size="27" font-weight="760" letter-spacing="-.5">${compact(value)}</text>
+    <text x="${cardWidth - 26}" y="63" text-anchor="end" fill="${metric.color}" font-size="11" font-weight="650">${deltaText}</text>
+  </g>`;
 }
 
-function renderOverviewSvg(ecosystemTotals, topRepos = []) {
-  const updatedAt = new Date().toLocaleDateString('pt-BR', {
-    day: '2-digit', month: 'short', year: 'numeric'
+function chartPanel(metric, points, index) {
+  const y = 197 + index * 217;
+  const left = 220;
+  const top = 20;
+  const graphWidth = 616;
+  const graphHeight = 150;
+  const metricPoints = points.filter((point) => point[metric.key] !== null && point[metric.key] !== undefined && Number.isFinite(Number(point[metric.key])));
+  
+  if (metricPoints.length === 0) {
+    metricPoints.push({ date: new Date().toISOString().slice(0, 10), [metric.key]: 0 });
+  }
+
+  const values = metricPoints.map((point) => Number(point[metric.key]));
+  const minValue = Math.min(...values);
+  const maxValue = Math.max(...values);
+  const flatPadding = minValue === maxValue ? Math.max(Math.abs(maxValue) * 0.05, 1) : 0;
+  const low = Math.max(0, minValue - flatPadding);
+  const high = maxValue + flatPadding;
+  const firstTime = Date.parse(`${metricPoints[0].date}T00:00:00Z`);
+  const lastTime = Date.parse(`${metricPoints.at(-1).date}T00:00:00Z`);
+
+  const coords = values.map((value, pointIndex) => {
+    const pointTime = Date.parse(`${metricPoints[pointIndex].date}T00:00:00Z`);
+    const x = left + (firstTime === lastTime ? graphWidth / 2 : (pointTime - firstTime) * graphWidth / (lastTime - firstTime));
+    const pointY = top + graphHeight - ((value - low) / Math.max(high - low, 1)) * graphHeight;
+    return [round(x), round(pointY)];
   });
 
-  const totalRepos = ecosystemTotals.repositories || 0;
-  const totalStars = ecosystemTotals.stars || 0;
-  const totalForks = ecosystemTotals.forks || 0;
-  const totalDownloads = ecosystemTotals.downloads || 0;
+  const line = coords.map(([x, pointY], pointIndex) => `${pointIndex ? 'L' : 'M'}${x} ${pointY}`).join(' ');
+  const area = `${line} L${coords.at(-1)[0]} ${top + graphHeight} L${coords[0][0]} ${top + graphHeight} Z`;
+  
+  const yTicks = [high, (high + low) / 2, low].map((value, idx) => {
+    const tickY = top + graphHeight * idx / 2;
+    return `<line x1="${left}" x2="${left + graphWidth}" y1="${tickY}" y2="${tickY}" class="grid" stroke-width="1" stroke-dasharray="3 6"/><text x="${left - 10}" y="${tickY + 4}" text-anchor="end" class="secondary" font-size="9">${compact(Math.round(value))}</text>`;
+  }).join('');
 
-  let topRowsSvg = '';
-  const rowsToDisplay = topRepos.slice(0, 5);
+  const xTicks = timeTicks(firstTime, lastTime).map(({ time, anchor }) => {
+    const tickX = firstTime === lastTime ? left + graphWidth / 2 : left + (time - firstTime) * graphWidth / (lastTime - firstTime);
+    return `<text x="${round(tickX)}" y="194" text-anchor="${anchor}" class="secondary" font-size="9">${escapeXml(axisDate(time))}</text>`;
+  }).join('');
 
-  rowsToDisplay.forEach((r, idx) => {
-    const yOffset = idx * 26;
-    const name = escapeXml(r.displayName || r.slug);
-    topRowsSvg += `
-      <g transform="translate(0, ${yOffset})">
-        <text class="row-rank" x="0" y="15">#${idx + 1}</text>
-        <text class="row-name" x="25" y="15">${name}</text>
-        <text class="row-stat" x="260" y="15" text-anchor="end">⭐ ${r.totals.stars}</text>
-        <text class="row-stat" x="330" y="15" text-anchor="end">🍴 ${r.totals.forks}</text>
-        <text class="row-stat" x="410" y="15" text-anchor="end">📦 ${formatNumber(r.totals.downloads)}</text>
-      </g>
-    `;
-  });
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="100%" height="320" style="max-width:760px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
-  <style>
-    .bg { fill: #0d1117; stroke: #30363d; }
-    .card { fill: #161b22; stroke: #30363d; }
-    .title { fill: #f0f6fc; font-size: 18px; font-weight: 700; }
-    .meta { fill: #8b949e; font-size: 11px; }
-    .stat-label { fill: #8b949e; font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
-    .stat-val { fill: #f0f6fc; font-size: 22px; font-weight: 700; }
-    .row-rank { fill: #8b949e; font-size: 11px; font-weight: 600; }
-    .row-name { fill: #58a6ff; font-size: 12px; font-weight: 600; }
-    .row-stat { fill: #e6edf3; font-size: 12px; }
-    .tag { fill: #238636; fill-opacity: 0.2; stroke: #2ea043; }
-    .tag-text { fill: #3fb950; font-size: 10px; font-weight: 600; }
-    @media (prefers-color-scheme: light) {
-      .bg { fill: #ffffff; stroke: #d0d7de; }
-      .card { fill: #f6f8fa; stroke: #d0d7de; }
-      .title { fill: #1f2328; }
-      .meta { fill: #656d76; }
-      .stat-label { fill: #656d76; }
-      .stat-val { fill: #1f2328; }
-      .row-rank { fill: #656d76; }
-      .row-name { fill: #0969da; }
-      .row-stat { fill: #1f2328; }
-      .tag { fill: #dafbe1; stroke: #1a7f37; }
-      .tag-text { fill: #1a7f37; }
-    }
-  </style>
-
-  <rect class="bg" x="0.5" y="0.5" width="759" height="319" rx="10" stroke-width="1" />
-
-  <!-- Header -->
-  <g transform="translate(24, 22)">
-    <text class="title" x="0" y="16">Ecossistema Ricard Tech · Métricas Globais</text>
-    <rect class="tag" x="380" y="2" width="160" height="20" rx="10" stroke-width="1"/>
-    <text class="tag-text" x="460" y="16" text-anchor="middle">GitHub + GitLab + Forgejo</text>
-    <text class="meta" x="712" y="16" text-anchor="end">Atualizado: ${updatedAt}</text>
-  </g>
-
-  <!-- 4 Cards Top Grid -->
-  <g transform="translate(24, 60)">
-    <!-- Repos -->
-    <g transform="translate(0, 0)">
-      <rect class="card" width="168" height="75" rx="8" stroke-width="1"/>
-      <g transform="translate(14, 16)">
-        <text class="stat-label" x="0" y="0">Repositórios</text>
-        <text class="stat-val" x="0" y="28">📁 ${totalRepos}</text>
-      </g>
-    </g>
-
-    <!-- Estrelas -->
-    <g transform="translate(181, 0)">
-      <rect class="card" width="168" height="75" rx="8" stroke-width="1"/>
-      <g transform="translate(14, 16)">
-        <text class="stat-label" x="0" y="0">Total Estrelas</text>
-        <text class="stat-val" x="0" y="28">⭐ ${formatNumber(totalStars)}</text>
-      </g>
-    </g>
-
-    <!-- Forks -->
-    <g transform="translate(362, 0)">
-      <rect class="card" width="168" height="75" rx="8" stroke-width="1"/>
-      <g transform="translate(14, 16)">
-        <text class="stat-label" x="0" y="0">Total Forks</text>
-        <text class="stat-val" x="0" y="28">🍴 ${formatNumber(totalForks)}</text>
-      </g>
-    </g>
-
-    <!-- Downloads -->
-    <g transform="translate(543, 0)">
-      <rect class="card" width="168" height="75" rx="8" stroke-width="1"/>
-      <g transform="translate(14, 16)">
-        <text class="stat-label" x="0" y="0">Total Downloads</text>
-        <text class="stat-val" x="0" y="28">📦 ${formatNumber(totalDownloads)}</text>
-      </g>
-    </g>
-  </g>
-
-  <!-- Top Repos Table Card -->
-  <g transform="translate(24, 150)">
-    <rect class="card" width="712" height="150" rx="8" stroke-width="1"/>
-    <g transform="translate(20, 20)">
-      <text class="stat-label" x="0" y="0">Projetos em Destaque no Ecossistema</text>
-      <g transform="translate(0, 16)">
-        ${topRowsSvg}
-      </g>
-    </g>
-  </g>
-</svg>`;
+  return `<g transform="translate(30 ${y})">
+    <rect width="856" height="201" rx="16" class="panel"/>
+    <circle cx="20" cy="27" r="5" fill="${metric.color}"/>
+    <text x="34" y="31" class="primary" font-size="14" font-weight="700">${metric.label}</text>
+    <text x="20" y="62" class="primary" font-size="20" font-weight="750">${compact(values.at(-1))}</text>
+    <text x="20" y="83" class="secondary" font-size="11">intervalo ${compact(minValue)}–${compact(maxValue)}</text>
+    ${yTicks}
+    <path d="${area}" fill="url(#fill-${metric.key})"/>
+    <path d="${line}" fill="none" stroke="${metric.color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    ${coords.map(([x, pointY], pointIndex) => pointIndex === coords.length - 1 ? `<circle cx="${x}" cy="${pointY}" r="5" fill="${metric.color}" stroke="#fff" stroke-width="2"/>` : '').join('')}
+    ${xTicks}
+  </g>`;
 }
 
-module.exports = { renderRepoSvg, renderOverviewSvg, formatNumber, escapeXml };
+function compact(value) {
+  if (value >= 1000000) return (value / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+  if (value >= 1000) return (value / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+  return String(Math.round(value));
+}
+
+function prettyDate(date) {
+  if (!date) return 'início';
+  const d = new Date(`${date}T00:00:00Z`);
+  return d.toLocaleDateString('pt-BR', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+}
+
+function timeTicks(firstTime, lastTime) {
+  if (firstTime === lastTime) return [{ time: firstTime, anchor: 'middle' }];
+  return [
+    { time: firstTime, anchor: 'start' },
+    { time: firstTime + (lastTime - firstTime) / 2, anchor: 'middle' },
+    { time: lastTime, anchor: 'end' }
+  ];
+}
+
+function axisDate(timestamp) {
+  const d = new Date(timestamp);
+  return d.toLocaleDateString('pt-BR', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+}
+
+function prettyTimestamp(timestamp) {
+  if (!timestamp) return 'agora mesmo';
+  return new Date(timestamp).toLocaleDateString('pt-BR', {
+    day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'America/Sao_Paulo'
+  });
+}
+
+function round(value) {
+  return Math.round(value * 10) / 10;
+}
+
+function escapeXml(value) {
+  return String(value || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[c]);
+}
+
+function resolveMetrics(metrics) {
+  const keys = metrics == null
+    ? DEFAULT_METRICS
+    : (Array.isArray(metrics) ? metrics : String(metrics).split(',')).map((k) => k.trim().toLowerCase()).filter(Boolean);
+  const uniqueKeys = [...new Set(keys)];
+  if (uniqueKeys.length === 0) return DEFAULT_METRICS.map((k) => METRICS.find((m) => m.key === k));
+  return uniqueKeys.map((k) => METRICS.find((m) => m.key === k)).filter(Boolean);
+}
+
+module.exports = { METRICS, DEFAULT_METRICS, renderDashboardSvg, compact, prettyDate, escapeXml };
