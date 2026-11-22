@@ -57,20 +57,14 @@ def extract_repo_slug(repo_path):
     return slug
 
 def inject_badge(repo_path, slug):
-    readme_path = None
-    for candidate in ["README.md", "readme.md", "README.MD"]:
-        p = os.path.join(repo_path, candidate)
-        if os.path.exists(p):
-            readme_path = p
-            break
+    readme_candidates = []
+    for item in os.listdir(repo_path):
+        if re.match(r"^readme.*\.md$", item, re.IGNORECASE):
+            readme_candidates.append(os.path.join(repo_path, item))
+    if not readme_candidates:
+        readme_candidates = [os.path.join(repo_path, "README.md")]
 
-    if not readme_path:
-        readme_path = os.path.join(repo_path, "README.md")
-        content = f"# {os.path.basename(repo_path)}\n\n"
-    else:
-        with open(readme_path, "r", encoding="utf-8", errors="ignore") as f:
-            content = f.read()
-
+    any_changed = False
     badge_url = f"https://raw.githubusercontent.com/alaxricardsilva/ricardtech-metrics/main/charts/{slug}.svg"
     badge_block = (
         f"<!-- ricardtech-metrics:start -->\n"
@@ -82,33 +76,39 @@ def inject_badge(repo_path, slug):
         f"<!-- ricardtech-metrics:end -->"
     )
 
-    if "ricardtech-metrics:start" in content:
-        new_content = re.sub(
-            r"<!-- ricardtech-metrics:start -->.*?<!-- ricardtech-metrics:end -->",
-            badge_block,
-            content,
-            flags=re.DOTALL
-        )
-    elif badge_url in content:
-        # já possui a url
-        return False, "Já contém a badge"
-    else:
-        # Insere logo após o primeiro título # ou no topo
-        h1_match = re.search(r"^(#\s+[^\n]+\n)", content, flags=re.MULTILINE)
-        if h1_match:
-            idx = h1_match.end()
-            new_content = content[:idx] + "\n" + badge_block + "\n" + content[idx:]
+    for readme_path in readme_candidates:
+        if not os.path.exists(readme_path):
+            content = f"# {os.path.basename(repo_path)}\n\n"
         else:
-            new_content = badge_block + "\n\n" + content
+            with open(readme_path, "r", encoding="utf-8", errors="ignore") as f:
+                content = f.read()
 
-    if new_content == content:
-        return False, "Sem mudanças necessárias"
+        if "ricardtech-metrics:start" in content:
+            new_content = re.sub(
+                r"<!-- ricardtech-metrics:start -->.*?<!-- ricardtech-metrics:end -->",
+                badge_block,
+                content,
+                flags=re.DOTALL
+            )
+        elif badge_url in content:
+            continue
+        else:
+            h1_match = re.search(r"^(#\s+[^\n]+\n)", content, flags=re.MULTILINE)
+            if h1_match:
+                idx = h1_match.end()
+                new_content = content[:idx] + "\n" + badge_block + "\n" + content[idx:]
+            else:
+                new_content = badge_block + "\n\n" + content
 
-    if not DRY_RUN:
-        with open(readme_path, "w", encoding="utf-8") as f:
-            f.write(new_content)
+        if new_content != content:
+            any_changed = True
+            if not DRY_RUN:
+                with open(readme_path, "w", encoding="utf-8") as f:
+                    f.write(new_content)
 
-    return True, f"Atualizado README com badge ({slug})"
+    if any_changed:
+        return True, f"Atualizado README com badge ({slug})"
+    return False, "Sem mudanças necessárias"
 
 def main():
     repos = get_git_repos()
