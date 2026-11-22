@@ -2,8 +2,10 @@ name: RicardTech Ecosystem Metrics
 
 on:
   schedule:
-    # Executa 2x ao dia: 00:00 UTC e 12:00 UTC
-    - cron: '0 0,12 * * *'
+    # Executa 2x ao dia no fuso America/Sao_Paulo (UTC-3):
+    # 03:00 UTC = 00:00 BRT (Meia-noite de Brasília)
+    # 15:00 UTC = 12:00 BRT (Meio-dia de Brasília)
+    - cron: '0 3,15 * * *'
   workflow_dispatch:
 
 permissions:
