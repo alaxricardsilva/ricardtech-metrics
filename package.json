@@ -1,6 +1,6 @@
 {
   "name": "ricardtech-metrics",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Multi-cloud repository growth analytics and SVG dashboard generator for GitHub, GitLab and Forgejo.",
   "main": "src/index.js",
   "bin": {

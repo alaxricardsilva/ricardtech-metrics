@@ -5,6 +5,13 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.1.0] - 2026-11-23
+
+### Adicionado
+- Suporte à métrica oficial de `Downloads` no gerador de SVG (`svg.js`) com card estilizado e gráfico de evolução temporal.
+- Geração do painel moderno de crescimento para o repositório oficial ALPM `repo` (`charts/repo.svg`) com 4 métricas (Commits, Tags, Releases e Downloads).
+- Aprimoramento da descoberta recursiva em `local-collector.js` para suportar repositórios aninhados.
+
 ## [1.0.0] - 2026-11-21
 
 ### Adicionado

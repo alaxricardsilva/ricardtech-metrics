@@ -8,7 +8,8 @@
 const METRICS = [
   { key: 'commits', label: 'Commits', color: '#8b5cf6', soft: '#c4b5fd' },
   { key: 'tags', label: 'Tags', color: '#06b6d4', soft: '#67e8f9' },
-  { key: 'releases', label: 'Releases', color: '#f59e0b', soft: '#fcd34d' }
+  { key: 'releases', label: 'Releases', color: '#f59e0b', soft: '#fcd34d' },
+  { key: 'downloads', label: 'Downloads', color: '#10b981', soft: '#6ee7b7' }
 ];
 
 const DEFAULT_METRICS = ['commits', 'tags', 'releases'];
