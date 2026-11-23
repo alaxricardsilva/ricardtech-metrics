@@ -1,39 +1,62 @@
 {
   "repository": "repo",
-  "createdAt": "2026-11-22T01:09:02.635Z",
-  "updatedAt": "2026-11-22T01:11:21.135Z",
-  "latest": {
-    "totals": {
-      "stars": 0,
-      "forks": 0,
-      "downloads": 19
-    },
-    "breakdown": {
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 19
-      },
-      "gitlab": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      },
-      "forgejo": {
-        "stars": 0,
-        "forks": 0,
-        "downloads": 0
-      }
-    }
+  "updatedAt": "2026-11-23T21:00:03.346Z",
+  "totals": {
+    "date": "2026-11-23",
+    "commits": 25,
+    "tags": 4,
+    "releases": 4,
+    "downloads": 19
   },
-  "history": [
+  "points": [
     {
-      "timestamp": "2026-11-22T01:11:21.135Z",
-      "date": "2026-11-22",
-      "stars": 0,
-      "forks": 0,
+      "date": "2026-11-10",
+      "commits": 1,
+      "tags": 0,
+      "releases": 0,
+      "downloads": 0
+    },
+    {
+      "date": "2026-11-17",
+      "commits": 7,
+      "tags": 0,
+      "releases": 0,
+      "downloads": 0
+    },
+    {
+      "date": "2026-11-18",
+      "commits": 9,
+      "tags": 0,
+      "releases": 0,
+      "downloads": 0
+    },
+    {
+      "date": "2026-11-19",
+      "commits": 17,
+      "tags": 2,
+      "releases": 2,
+      "downloads": 7
+    },
+    {
+      "date": "2026-11-20",
+      "commits": 23,
+      "tags": 3,
+      "releases": 3,
+      "downloads": 15
+    },
+    {
+      "date": "2026-11-21",
+      "commits": 24,
+      "tags": 3,
+      "releases": 3,
+      "downloads": 15
+    },
+    {
+      "date": "2026-11-23",
+      "commits": 25,
+      "tags": 4,
+      "releases": 4,
       "downloads": 19
     }
-  ],
-  "displayName": "repo"
+  ]
 }
