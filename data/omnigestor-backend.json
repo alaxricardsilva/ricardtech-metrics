@@ -1,8 +1,8 @@
 {
   "repository": "omnigestor-backend",
-  "updatedAt": "2026-11-24T21:00:05.919Z",
+  "updatedAt": "2026-11-25T00:00:15.691Z",
   "totals": {
-    "date": "2026-11-24",
+    "date": "2026-11-25",
     "commits": 479,
     "tags": 17,
     "releases": 17
@@ -417,7 +417,7 @@
       "releases": 17
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "commits": 479,
       "tags": 17,
       "releases": 17
