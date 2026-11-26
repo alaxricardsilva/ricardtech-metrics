@@ -30,7 +30,7 @@
   <g transform="translate(42 38)">
     <rect x="0" y="0" width="916" height="881" rx="22" class="surface" filter="url(#shadow)"/>
     <text x="30" y="45" class="primary" font-size="26" font-weight="750" letter-spacing="-.5">WhatsGo · Crescimento</text>
-    <text x="30" y="70" class="secondary" font-size="14">RicardTech/whatsgo · 16 de abr. de 2026 – 25 de nov. de 2026</text>
+    <text x="30" y="70" class="secondary" font-size="14">RicardTech/whatsgo · 16 de abr. de 2026 – 26 de nov. de 2026</text>
     <g transform="translate(740 25)">
       <rect width="146" height="30" rx="15" fill="#8b5cf6" fill-opacity=".12"/>
       <circle cx="17" cy="15" r="4" fill="#8b5cf6"/>
@@ -62,10 +62,10 @@
     <text x="20" y="62" class="primary" font-size="20" font-weight="750">196</text>
     <text x="20" y="83" class="secondary" font-size="11">intervalo 5–196</text>
     <line x1="220" x2="836" y1="20" y2="20" class="grid" stroke-width="1" stroke-dasharray="3 6"/><text x="210" y="24" text-anchor="end" class="secondary" font-size="9">196</text><line x1="220" x2="836" y1="95" y2="95" class="grid" stroke-width="1" stroke-dasharray="3 6"/><text x="210" y="99" text-anchor="end" class="secondary" font-size="9">101</text><line x1="220" x2="836" y1="170" y2="170" class="grid" stroke-width="1" stroke-dasharray="3 6"/><text x="210" y="174" text-anchor="end" class="secondary" font-size="9">5</text>
-    <path d="M220 170 L222.8 133.9 L225.5 119 L228.3 118.2 L231 115 L233.8 112.7 L253.1 111.1 L255.9 109.5 L258.7 108 L261.4 104 L269.7 96.2 L272.5 95.4 L278 72.6 L280.8 60.1 L286.3 53 L297.3 51.4 L300.1 46.7 L322.2 43.6 L402.3 42.8 L410.6 36.5 L418.9 35.7 L424.4 34.9 L427.2 27.9 L429.9 27.1 L504.5 26.3 L612.3 22.4 L684.1 21.6 L819.4 20.8 L825 20 L836 20 L836 170 L220 170 Z" fill="url(#fill-commits)"/>
-    <path d="M220 170 L222.8 133.9 L225.5 119 L228.3 118.2 L231 115 L233.8 112.7 L253.1 111.1 L255.9 109.5 L258.7 108 L261.4 104 L269.7 96.2 L272.5 95.4 L278 72.6 L280.8 60.1 L286.3 53 L297.3 51.4 L300.1 46.7 L322.2 43.6 L402.3 42.8 L410.6 36.5 L418.9 35.7 L424.4 34.9 L427.2 27.9 L429.9 27.1 L504.5 26.3 L612.3 22.4 L684.1 21.6 L819.4 20.8 L825 20 L836 20" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M220 170 L222.8 133.9 L225.5 119 L228.3 118.2 L231 115 L233.8 112.7 L253 111.1 L255.8 109.5 L258.5 108 L261.3 104 L269.5 96.2 L272.3 95.4 L277.8 72.6 L280.5 60.1 L286 53 L297 51.4 L299.8 46.7 L321.8 43.6 L401.5 42.8 L409.8 36.5 L418 35.7 L423.5 34.9 L426.3 27.9 L429 27.1 L503.3 26.3 L610.5 22.4 L682 21.6 L816.8 20.8 L822.3 20 L836 20 L836 170 L220 170 Z" fill="url(#fill-commits)"/>
+    <path d="M220 170 L222.8 133.9 L225.5 119 L228.3 118.2 L231 115 L233.8 112.7 L253 111.1 L255.8 109.5 L258.5 108 L261.3 104 L269.5 96.2 L272.3 95.4 L277.8 72.6 L280.5 60.1 L286 53 L297 51.4 L299.8 46.7 L321.8 43.6 L401.5 42.8 L409.8 36.5 L418 35.7 L423.5 34.9 L426.3 27.9 L429 27.1 L503.3 26.3 L610.5 22.4 L682 21.6 L816.8 20.8 L822.3 20 L836 20" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="836" cy="20" r="5" fill="#8b5cf6" stroke="#fff" stroke-width="2"/>
-    <text x="220" y="194" text-anchor="start" class="secondary" font-size="9">16 de abr.</text><text x="528" y="194" text-anchor="middle" class="secondary" font-size="9">5 de ago.</text><text x="836" y="194" text-anchor="end" class="secondary" font-size="9">25 de nov.</text>
+    <text x="220" y="194" text-anchor="start" class="secondary" font-size="9">16 de abr.</text><text x="528" y="194" text-anchor="middle" class="secondary" font-size="9">6 de ago.</text><text x="836" y="194" text-anchor="end" class="secondary" font-size="9">26 de nov.</text>
   </g><g transform="translate(30 414)">
     <rect width="856" height="201" rx="16" class="panel"/>
     <circle cx="20" cy="27" r="5" fill="#06b6d4"/>
@@ -73,10 +73,10 @@
     <text x="20" y="62" class="primary" font-size="20" font-weight="750">43</text>
     <text x="20" y="83" class="secondary" font-size="11">intervalo 0–43</text>
     <line x1="220" x2="836" y1="20" y2="20" class="grid" stroke-width="1" stroke-dasharray="3 6"/><text x="210" y="24" text-anchor="end" class="secondary" font-size="9">43</text><line x1="220" x2="836" y1="95" y2="95" class="grid" stroke-width="1" stroke-dasharray="3 6"/><text x="210" y="99" text-anchor="end" class="secondary" font-size="9">22</text><line x1="220" x2="836" y1="170" y2="170" class="grid" stroke-width="1" stroke-dasharray="3 6"/><text x="210" y="174" text-anchor="end" class="secondary" font-size="9">0</text>
-    <path d="M220 170 L222.8 170 L225.5 170 L228.3 170 L231 170 L233.8 170 L253.1 170 L255.9 170 L258.7 170 L261.4 170 L269.7 166.5 L272.5 159.5 L278 145.6 L280.8 110.7 L286.3 110.7 L297.3 107.2 L300.1 96.7 L322.2 89.8 L402.3 89.8 L410.6 75.8 L418.9 72.3 L424.4 68.8 L427.2 40.9 L429.9 34 L504.5 30.5 L612.3 23.5 L684.1 20 L819.4 20 L825 20 L836 20 L836 170 L220 170 Z" fill="url(#fill-tags)"/>
-    <path d="M220 170 L222.8 170 L225.5 170 L228.3 170 L231 170 L233.8 170 L253.1 170 L255.9 170 L258.7 170 L261.4 170 L269.7 166.5 L272.5 159.5 L278 145.6 L280.8 110.7 L286.3 110.7 L297.3 107.2 L300.1 96.7 L322.2 89.8 L402.3 89.8 L410.6 75.8 L418.9 72.3 L424.4 68.8 L427.2 40.9 L429.9 34 L504.5 30.5 L612.3 23.5 L684.1 20 L819.4 20 L825 20 L836 20" fill="none" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M220 170 L222.8 170 L225.5 170 L228.3 170 L231 170 L233.8 170 L253 170 L255.8 170 L258.5 170 L261.3 170 L269.5 166.5 L272.3 159.5 L277.8 145.6 L280.5 110.7 L286 110.7 L297 107.2 L299.8 96.7 L321.8 89.8 L401.5 89.8 L409.8 75.8 L418 72.3 L423.5 68.8 L426.3 40.9 L429 34 L503.3 30.5 L610.5 23.5 L682 20 L816.8 20 L822.3 20 L836 20 L836 170 L220 170 Z" fill="url(#fill-tags)"/>
+    <path d="M220 170 L222.8 170 L225.5 170 L228.3 170 L231 170 L233.8 170 L253 170 L255.8 170 L258.5 170 L261.3 170 L269.5 166.5 L272.3 159.5 L277.8 145.6 L280.5 110.7 L286 110.7 L297 107.2 L299.8 96.7 L321.8 89.8 L401.5 89.8 L409.8 75.8 L418 72.3 L423.5 68.8 L426.3 40.9 L429 34 L503.3 30.5 L610.5 23.5 L682 20 L816.8 20 L822.3 20 L836 20" fill="none" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="836" cy="20" r="5" fill="#06b6d4" stroke="#fff" stroke-width="2"/>
-    <text x="220" y="194" text-anchor="start" class="secondary" font-size="9">16 de abr.</text><text x="528" y="194" text-anchor="middle" class="secondary" font-size="9">5 de ago.</text><text x="836" y="194" text-anchor="end" class="secondary" font-size="9">25 de nov.</text>
+    <text x="220" y="194" text-anchor="start" class="secondary" font-size="9">16 de abr.</text><text x="528" y="194" text-anchor="middle" class="secondary" font-size="9">6 de ago.</text><text x="836" y="194" text-anchor="end" class="secondary" font-size="9">26 de nov.</text>
   </g><g transform="translate(30 631)">
     <rect width="856" height="201" rx="16" class="panel"/>
     <circle cx="20" cy="27" r="5" fill="#f59e0b"/>
@@ -84,12 +84,12 @@
     <text x="20" y="62" class="primary" font-size="20" font-weight="750">43</text>
     <text x="20" y="83" class="secondary" font-size="11">intervalo 0–43</text>
     <line x1="220" x2="836" y1="20" y2="20" class="grid" stroke-width="1" stroke-dasharray="3 6"/><text x="210" y="24" text-anchor="end" class="secondary" font-size="9">43</text><line x1="220" x2="836" y1="95" y2="95" class="grid" stroke-width="1" stroke-dasharray="3 6"/><text x="210" y="99" text-anchor="end" class="secondary" font-size="9">22</text><line x1="220" x2="836" y1="170" y2="170" class="grid" stroke-width="1" stroke-dasharray="3 6"/><text x="210" y="174" text-anchor="end" class="secondary" font-size="9">0</text>
-    <path d="M220 170 L222.8 170 L225.5 170 L228.3 170 L231 170 L233.8 170 L253.1 170 L255.9 170 L258.7 170 L261.4 170 L269.7 166.5 L272.5 159.5 L278 145.6 L280.8 110.7 L286.3 110.7 L297.3 107.2 L300.1 96.7 L322.2 89.8 L402.3 89.8 L410.6 75.8 L418.9 72.3 L424.4 68.8 L427.2 40.9 L429.9 34 L504.5 30.5 L612.3 23.5 L684.1 20 L819.4 20 L825 20 L836 20 L836 170 L220 170 Z" fill="url(#fill-releases)"/>
-    <path d="M220 170 L222.8 170 L225.5 170 L228.3 170 L231 170 L233.8 170 L253.1 170 L255.9 170 L258.7 170 L261.4 170 L269.7 166.5 L272.5 159.5 L278 145.6 L280.8 110.7 L286.3 110.7 L297.3 107.2 L300.1 96.7 L322.2 89.8 L402.3 89.8 L410.6 75.8 L418.9 72.3 L424.4 68.8 L427.2 40.9 L429.9 34 L504.5 30.5 L612.3 23.5 L684.1 20 L819.4 20 L825 20 L836 20" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M220 170 L222.8 170 L225.5 170 L228.3 170 L231 170 L233.8 170 L253 170 L255.8 170 L258.5 170 L261.3 170 L269.5 166.5 L272.3 159.5 L277.8 145.6 L280.5 110.7 L286 110.7 L297 107.2 L299.8 96.7 L321.8 89.8 L401.5 89.8 L409.8 75.8 L418 72.3 L423.5 68.8 L426.3 40.9 L429 34 L503.3 30.5 L610.5 23.5 L682 20 L816.8 20 L822.3 20 L836 20 L836 170 L220 170 Z" fill="url(#fill-releases)"/>
+    <path d="M220 170 L222.8 170 L225.5 170 L228.3 170 L231 170 L233.8 170 L253 170 L255.8 170 L258.5 170 L261.3 170 L269.5 166.5 L272.3 159.5 L277.8 145.6 L280.5 110.7 L286 110.7 L297 107.2 L299.8 96.7 L321.8 89.8 L401.5 89.8 L409.8 75.8 L418 72.3 L423.5 68.8 L426.3 40.9 L429 34 L503.3 30.5 L610.5 23.5 L682 20 L816.8 20 L822.3 20 L836 20" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="836" cy="20" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
-    <text x="220" y="194" text-anchor="start" class="secondary" font-size="9">16 de abr.</text><text x="528" y="194" text-anchor="middle" class="secondary" font-size="9">5 de ago.</text><text x="836" y="194" text-anchor="end" class="secondary" font-size="9">25 de nov.</text>
+    <text x="220" y="194" text-anchor="start" class="secondary" font-size="9">16 de abr.</text><text x="528" y="194" text-anchor="middle" class="secondary" font-size="9">6 de ago.</text><text x="836" y="194" text-anchor="end" class="secondary" font-size="9">26 de nov.</text>
   </g>
-    <text x="30" y="862" class="secondary" font-size="11">Atualizado em 25 de nov. de 2026, 18:00</text>
+    <text x="30" y="862" class="secondary" font-size="11">Atualizado em 25 de nov. de 2026, 21:00</text>
     <a href="https://git.ricardtech.top/RicardTech/ricardtech-metrics" target="_blank" aria-label="Abrir projeto RicardTech Metrics">
       <text x="886" y="862" fill="#8b5cf6" text-anchor="end" font-size="13" font-weight="700">Gerado por RicardTech Metrics ↗</text>
     </a>
