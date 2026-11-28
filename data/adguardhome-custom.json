@@ -1,8 +1,8 @@
 {
   "repository": "adguardhome-custom",
-  "updatedAt": "2026-11-27T21:00:11.151Z",
+  "updatedAt": "2026-11-28T00:00:09.068Z",
   "totals": {
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "commits": 4777,
     "tags": 331,
     "releases": 331
@@ -8673,7 +8673,7 @@
       "releases": 331
     },
     {
-      "date": "2026-11-27",
+      "date": "2026-11-28",
       "commits": 4777,
       "tags": 331,
       "releases": 331
